@@ -1,0 +1,95 @@
+
+
+
+
+	arcShape = new THREE.Shape
+	arcShape.absarc 10, 10, 40, 0, Math.PI*2, false 
+
+	#holePath = new THREE.Path
+	#holePath.absarc 10, 10, 30, 0, Math.PI*2, true 
+	#arcShape.holes.push holePath 
+
+	extrudeSettings =
+		curveSegments: 100
+		amount: 10
+		bevelEnabled: false
+		bevelSegments: 1
+		steps: 1
+
+	mesh = addShape arcShape, extrudeSettings, 0xbb4422, -50, 0, 0, 0, 0, 0, 4
+	mesh.position.x = 50
+	scene.add mesh
+
+	addShape = ( shape, extrudeSettings, color, x, y, z, rx, ry, rz, s ) ->
+
+	group = new THREE.Object3D()
+
+	points = shape.createPointsGeometry()
+	spacedPoints = shape.createSpacedPointsGeometry 100 
+
+	# # flat shape
+
+	# geometry = new THREE.ShapeGeometry( shape )
+
+	# mesh = THREE.SceneUtils.createMultiMaterialObject( geometry, [ new THREE.MeshLambertMaterial( { color: color } ), new THREE.MeshBasicMaterial( { color: 0x000000, wireframe: true, transparent: true } ) ] )
+	# mesh.position.set( x, y, z - 125 )
+	# mesh.rotation.set( rx, ry, rz )
+	# mesh.scale.set( s, s, s )
+	# group.add( mesh )
+
+	# 3d shape
+
+	geometry = new THREE.ExtrudeGeometry( shape, extrudeSettings )
+	geometry.computeVertexNormals()
+	#geometry.computeFaceNormals()
+
+	material = new THREE.MeshBasicMaterial( { envMap: THREE.ImageUtils.loadTexture( 'im/metal.jpg', new THREE.SphericalReflectionMapping() ), overdraw: true, side: THREE.FrontSide } )
+	mesh = THREE.SceneUtils.createMultiMaterialObject( geometry, [material] ) #[ new THREE.MeshLambertMaterial( { color: color } ), new THREE.MeshBasicMaterial( { color: 0xff0000, overdraw: 0, wireframe: true, transparent: true} ) ] )
+	mesh.position.set( x, y, z )
+	mesh.rotation.set( rx, ry, rz )
+	mesh.scale.set( s, s, s )
+	group.add( mesh )
+
+	# # solid line
+
+	# line = new THREE.Line( points, new THREE.LineBasicMaterial( { color: color, linewidth: 2 } ) )
+	# line.position.set( x, y, z + 25 )
+	# line.rotation.set( rx, ry, rz )
+	# line.scale.set( s, s, s )
+	# group.add( line )
+
+	# # transparent line from real points
+
+	# line = new THREE.Line( points, new THREE.LineBasicMaterial( { color: color, opacity: 0.5 } ) )
+	# line.position.set( x, y, z + 75 )
+	# line.rotation.set( rx, ry, rz )
+	# line.scale.set( s, s, s )
+	# group.add( line )
+
+	# # vertices from real points
+
+	# pgeo = points.clone()
+	# particles = new THREE.ParticleSystem( pgeo, new THREE.ParticleSystemMaterial( { color: color, size: 2, opacity: 0.75 } ) )
+	# particles.position.set( x, y, z + 75 )
+	# particles.rotation.set( rx, ry, rz )
+	# particles.scale.set( s, s, s )
+	# group.add( particles )
+
+	# transparent line from equidistance sampled points
+
+	# line = new THREE.Line( spacedPoints, new THREE.LineBasicMaterial( { color: color, opacity: 0.2 } ) )
+	# line.position.set( x, y, z + 125 )
+	# line.rotation.set( rx, ry, rz )
+	# line.scale.set( s, s, s )
+	# group.add( line )
+
+	# # equidistance sampled points
+
+	# pgeo = spacedPoints.clone()
+	# particles2 = new THREE.ParticleSystem( pgeo, new THREE.ParticleSystemMaterial( { color: color, size: 2, opacity: 0.5 } ) )
+	# particles2.position.set( x, y, z + 125 )
+	# particles2.rotation.set( rx, ry, rz )
+	# particles2.scale.set( s, s, s )
+	# group.add( particles2 )
+
+	return group

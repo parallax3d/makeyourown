@@ -1,0 +1,1041 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"for",
+				"forin	Array Comprehension"
+			],
+			[
+				"child",
+				"children"
+			],
+			[
+				"toru",
+				"torus1Y"
+			],
+			[
+				"chi",
+				"children"
+			],
+			[
+				"defa",
+				"defaultFont"
+			],
+			[
+				"curr",
+				"currentStr"
+			],
+			[
+				"selec",
+				"selectionStart"
+			],
+			[
+				"len",
+				"length"
+			],
+			[
+				"or",
+				"overflow"
+			],
+			[
+				"bac",
+				"background-color"
+			],
+			[
+				"Objec",
+				"Object3D"
+			],
+			[
+				"text",
+				"textWidth"
+			],
+			[
+				"arr2",
+				"arr2index"
+			],
+			[
+				"fo",
+				"for	for (…) {…} (Improved Native For-Loop)"
+			],
+			[
+				"max",
+				"maxline"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "source/coffee/main.coffee",
+			"settings":
+			{
+				"buffer_size": 11146,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "source/panels/p1.html",
+			"settings":
+			{
+				"buffer_size": 3536,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "source/index.html",
+			"settings":
+			{
+				"buffer_size": 2731,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "public/js/config.js",
+			"settings":
+			{
+				"buffer_size": 1712,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "backend/js/fonts/calligraph.typeface.js",
+			"settings":
+			{
+				"buffer_size": 257442,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "source/Gruntfile.coffee",
+			"settings":
+			{
+				"buffer_size": 4189,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 206.0,
+		"selected_items":
+		[
+			[
+				"close",
+				"Project: Close"
+			],
+			[
+				"set coff",
+				"Set Syntax: CoffeeScript"
+			],
+			[
+				"inst",
+				"Package Control: Install Package"
+			],
+			[
+				"remove",
+				"Package Control: Remove Package"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"packa ls",
+				"Package Control: List Packages"
+			],
+			[
+				"close ",
+				"Project: Close"
+			],
+			[
+				"wor",
+				"Word Wrap: Toggle"
+			],
+			[
+				"wrap",
+				"Word Wrap: Toggle"
+			],
+			[
+				"pac inst",
+				"Package Control: Install Package"
+			],
+			[
+				"word",
+				"Word Wrap: Toggle"
+			],
+			[
+				"add ",
+				"Project: Add Folder"
+			],
+			[
+				"se javasc",
+				"Set Syntax: JavaScript"
+			],
+			[
+				"set php",
+				"Set Syntax: PHP"
+			],
+			[
+				"pack rem",
+				"Package Control: Remove Package"
+			],
+			[
+				"list pac",
+				"Package Control: List Packages"
+			],
+			[
+				"instal",
+				"Package Control: Install Package"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"instll",
+				"Package Control: Install Package"
+			],
+			[
+				"ins",
+				"Package Control: Install Package"
+			],
+			[
+				"men",
+				"View: Toggle Menu"
+			],
+			[
+				"menu",
+				"View: Toggle Menu"
+			]
+		],
+		"width": 417.0
+	},
+	"console":
+	{
+		"height": 139.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = '7183a2d3e96f11eeadd761d777e62404' + 'e330c659d4bb41d3bdf022e94cab3cd0'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": false,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": true,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/Applications/MAMP/htdocs/neweditor.dev",
+		"/Applications/MAMP/htdocs/neweditor.dev/backend",
+		"/Applications/MAMP/htdocs/neweditor.dev/backend/js",
+		"/Applications/MAMP/htdocs/neweditor.dev/backend/js/fonts",
+		"/Applications/MAMP/htdocs/neweditor.dev/public",
+		"/Applications/MAMP/htdocs/neweditor.dev/public/js",
+		"/Applications/MAMP/htdocs/neweditor.dev/source",
+		"/Applications/MAMP/htdocs/neweditor.dev/source/coffee",
+		"/Applications/MAMP/htdocs/neweditor.dev/source/css",
+		"/Applications/MAMP/htdocs/neweditor.dev/source/js",
+		"/Applications/MAMP/htdocs/neweditor.dev/source/panels"
+	],
+	"file_history":
+	[
+		"/Applications/MAMP/htdocs/neweditor.dev/source/bower_components/jquery/src/css.js",
+		"/Applications/MAMP/htdocs/neweditor.dev/backend/js/fonts/aldrich.typeface.js",
+		"/Applications/MAMP/htdocs/neweditor.dev/source/node_modules/grunt/appveyor.yml",
+		"/Applications/MAMP/htdocs/neweditor.dev/source/css/main.css",
+		"/Applications/MAMP/htdocs/neweditor.dev/backend/js/main.js",
+		"/Applications/MAMP/htdocs/neweditor.dev/source/coffee/main.coffee",
+		"/Applications/MAMP/htdocs/neweditor.dev/source/coffee/_necklace.coffee",
+		"/Applications/MAMP/htdocs/neweditor.dev/source/panels/p3.html",
+		"/Applications/MAMP/htdocs/neweditor.dev/source/Gruntfile.coffee",
+		"/Applications/MAMP/htdocs/neweditor.dev/source/index.html",
+		"/Applications/MAMP/htdocs/neweditor.dev/backend/obj/diamond/бэкап/diamond1.obj1",
+		"/Applications/MAMP/htdocs/neweditor.dev/source/node_modules/grunt-contrib-uglify/node_modules/uglify-js/lib/parse.js",
+		"/Applications/MAMP/htdocs/neweditor.dev/source/node_modules/grunt/node_modules/glob/examples/usr-local.js",
+		"/Applications/MAMP/htdocs/neweditor.dev/source/node_modules/grunt-notify/lib/util/guessProjectName.js",
+		"/Applications/MAMP/htdocs/neweditor.dev/source/panels/p4.html",
+		"/Applications/MAMP/htdocs/neweditor.dev/source/node_modules/grunt-contrib-htmlmin/node_modules/html-minifier/sample-cli-config-file.conf",
+		"/Applications/MAMP/htdocs/neweditor.dev/source/node_modules/grunt-contrib-htmlmin/node_modules/html-minifier/node_modules/change-case/node_modules/upper-case-first/upper-case-first.js",
+		"/Applications/MAMP/htdocs/neweditor.dev/source/coffee/config.coffee",
+		"/Applications/MAMP/htdocs/neweditor.dev/source/coffee/_ConvexTextRing.coffee",
+		"/Applications/MAMP/htdocs/neweditor.dev/source/coffee/graphics.coffee",
+		"/Applications/MAMP/htdocs/neweditor.dev/source/coffee/__necklace-text.coffee",
+		"/Applications/MAMP/htdocs/neweditor.dev/source/coffee/_messager.coffee",
+		"/Applications/MAMP/htdocs/neweditor.dev/source/package.json",
+		"/Applications/MAMP/htdocs/neweditor.dev/source/panels/p1.html",
+		"/Applications/MAMP/htdocs/neweditor.dev/public/js/jqueryui.js",
+		"/Applications/MAMP/htdocs/neweditor.dev/heroku_b/js/jqueryui.js",
+		"/Applications/MAMP/htdocs/neweditor.dev/heroku/js/jqueryui.js",
+		"/Applications/MAMP/htdocs/neweditor.dev/frontend/js/jqueryui.js",
+		"/Applications/MAMP/htdocs/neweditor.dev/backend/js/jqueryui.js",
+		"/Applications/MAMP/htdocs/neweditor.dev/public/js/jsdiff.js",
+		"/Applications/MAMP/htdocs/neweditor.dev/public/js/three.js",
+		"/Applications/MAMP/htdocs/neweditor.dev/2/backend/js/three.js",
+		"/Applications/MAMP/htdocs/neweditor.dev/2/frontend/js/three.js",
+		"/Applications/MAMP/htdocs/neweditor.dev/heroku_b/js/three.js",
+		"/Applications/MAMP/htdocs/neweditor.dev/heroku/js/three.js",
+		"/Applications/MAMP/htdocs/neweditor.dev/frontend/js/three.js",
+		"/Applications/MAMP/htdocs/neweditor.dev/backend/js/three.js",
+		"/Applications/MAMP/htdocs/neweditor.dev/public/index.html",
+		"/Applications/MAMP/htdocs/neweditor.dev/heroku_b/index.php",
+		"/Applications/MAMP/htdocs/neweditor.dev/heroku/index.php",
+		"/Applications/MAMP/htdocs/neweditor.dev/frontend/index.html",
+		"/Applications/MAMP/htdocs/neweditor.dev/backend/index.html",
+		"/Applications/MAMP/htdocs/neweditor.dev/source/coffee/__text.coffee",
+		"/Users/avsh/.zshrc",
+		"/Applications/MAMP/htdocs/neweditor.dev/source/coffee/_diamondring.coffee",
+		"/var/www/html/neweditor/source/css/main.css",
+		"/var/www/html/neweditor/source/panels/p1.html",
+		"/home/avsh/Desktop/dump.sql",
+		"/var/www/html/neweditor/source/node_modules/grunt-notify/node_modules/stack-parser/LICENSE",
+		"/var/www/html/neweditor/source/node_modules/grunt-notify/bin/Grunt.app/Contents/Resources/en.lproj/InfoPlist.strings",
+		"/var/www/html/neweditor/source/node_modules/grunt/LICENSE-MIT",
+		"/var/www/html/neweditor/source/node_modules/grunt-contrib-cssmin/node_modules/maxmin/node_modules/gzip-size/node_modules/zlib-browserify/node_modules/tape/test/max_listeners.js",
+		"/var/www/html/neweditor/source/node_modules/grunt-contrib-cssmin/node_modules/maxmin/node_modules/gzip-size/node_modules/concat-stream/node_modules/readable-stream/lib/_stream_passthrough.js",
+		"/var/www/html/neweditor/source/index.html",
+		"/var/www/html/neweditor/source/Gruntfile.coffee",
+		"/var/www/html/neweditor/source/coffee/__necklace-text.coffee",
+		"/var/www/html/neweditor/source/coffee/_necklace.coffee",
+		"/var/www/html/neweditor/source/coffee/config.coffee",
+		"/var/www/html/neweditor/source/coffee/main.coffee",
+		"/var/www/html/neweditor/source/coffee/_diamondring.coffee",
+		"/var/www/html/neweditor/source/node_modules/grunt/node_modules/exit/LICENSE-MIT",
+		"/var/www/html/neweditor/source/bower_components/jquery/src/dimensions.js",
+		"/var/www/html/neweditor/public/obj/diamond/бэкап/diamond1.obj1",
+		"/var/www/html/neweditor/source/node_modules/grunt/node_modules/hooker/dist/ba-hooker.js",
+		"/var/www/html/neweditor/source/coffee/_ConvexTextRing.coffee",
+		"/var/www/html/neweditor/source/bower_components/jquery/src/css.js",
+		"/var/www/html/neweditor/source/node_modules/grunt-notify/CHANGELOG.md",
+		"/var/www/html/neweditor/source_old/source/coffee/_necklace.coffee",
+		"/var/www/html/neweditor/source/node_modules/grunt/node_modules/eventemitter2/package.json",
+		"/var/www/html/neweditor/source/node_modules/grunt/node_modules/grunt-legacy-util/test/fixtures/Gruntfile-print-text.js",
+		"/var/www/html/neweditor/source/coffee/graphics.coffee",
+		"/var/www/html/neweditor/source/bower.json",
+		"/var/www/html/neweditor/source/node_modules/grunt/node_modules/minimatch/test/basic.js",
+		"/var/www/html/neweditor/source/node_modules/grunt/node_modules/glob/test/bash-comparison.js",
+		"/var/www/html/neweditor/source/coffee/_raw.coffee",
+		"/var/www/html/neweditor/public/js/stl.js",
+		"/var/www/html/neweditor/heroku/js/obj.js",
+		"/var/www/html/neweditor/frontend/index.php",
+		"/var/www/html/neweditor/frontend/js/detector.js",
+		"/var/www/html/neweditor/frontend/post_test.php",
+		"/var/www/html/neweditor/source/node_modules/grunt/node_modules/findup-sync/node_modules/glob/test/root-nomount.js",
+		"/var/www/html/neweditor/frontend/js/fonts/red_october.typeface.js",
+		"/var/www/html/neweditor/source/node_modules/grunt-contrib-cssmin/node_modules/clean-css/lib/text/free.js",
+		"/var/www/html/neweditor/frontend/js/filesaver.js",
+		"/var/www/html/neweditor/source/node_modules/grunt-contrib-htmlmin/node_modules/pretty-bytes/package.json",
+		"/var/www/html/neweditor/source/node_modules/grunt/node_modules/coffee-script/bin/cake",
+		"/var/www/html/neweditor/source/bower_components/jquery/src/var/deletedIds.js",
+		"/var/www/html/neweditor/source/bower_components/jquery/MIT-LICENSE.txt",
+		"/var/www/html/neweditor/source/node_modules/grunt-contrib-uglify/node_modules/uglify-js/node_modules/source-map/build/mini-require.js",
+		"/var/www/html/neweditor/source/bower_components/jquery/src/css/defaultDisplay.js",
+		"/var/www/html/neweditor/source/node_modules/grunt/node_modules/underscore.string/test/test_underscore/objects.js",
+		"/var/www/html/neweditor/source/node_modules/grunt/appveyor.yml",
+		"/var/www/html/neweditor/heroku/js/fonts/american_captain.typeface.js",
+		"/var/www/html/neweditor/source/node_modules/grunt/node_modules/js-yaml/node_modules/argparse/node_modules/underscore/underscore-min.js",
+		"/var/www/html/neweditor/source/node_modules/grunt-contrib-coffee/node_modules/chalk/node_modules/ansi-styles/ansi-styles.js",
+		"/var/www/html/neweditor/source/node_modules/grunt/node_modules/js-yaml/examples/sample_document.js",
+		"/var/www/html/neweditor/source/node_modules/grunt/node_modules/underscore.string/README.markdown",
+		"/var/www/html/neweditor/source/node_modules/grunt/node_modules/colors/themes/winston-light.js",
+		"/var/www/html/neweditor/source/node_modules/grunt-notify/lib/platforms/growl-notify.js",
+		"/var/www/html/neweditor/source/node_modules/grunt-contrib-watch/node_modules/lodash/lodash.js",
+		"/var/www/html/neweditor/public/js/obj.js",
+		"/var/www/html/neweditor/source/node_modules/grunt-contrib-uglify/node_modules/uglify-js/lib/mozilla-ast.js",
+		"/var/www/html/neweditor/source/node_modules/grunt-notify/node_modules/semver/test/no-module.js",
+		"/var/www/html/neweditor/source/node_modules/grunt-contrib-uglify/node_modules/uglify-js/node_modules/optimist/example/default_hash.js",
+		"/var/www/html/neweditor/public/panels/p1.html",
+		"/var/www/html/neweditor/source/panels/p2.html",
+		"/var/www/html/neweditor/source/node_modules/grunt/node_modules/async/index.js",
+		"/var/www/html/neweditor/public/js/three.js",
+		"/var/www/html/neweditor/public/obj/diamond/diamond1.obj",
+		"/var/www/html/neweditor/source_old/source/coffee/_diamondring.coffee",
+		"/var/www/html/neweditor/public/obj/diamond/бэкап/diamond6.obj6",
+		"/var/www/html/neweditor/public/obj/diamond/бэкап/diamond5.obj5",
+		"/var/www/html/neweditor/public/obj/diamond/бэкап/diamond4.obj4",
+		"/var/www/html/neweditor/public/obj/diamond/бэкап/diamond3.obj3",
+		"/var/www/html/neweditor/public/obj/diamond/бэкап/diamond2.obj2",
+		"/var/www/html/neweditor/public/obj/diamond/diamond1.stl",
+		"/var/www/html/neweditor/source_old/source/bower_components/jquery/MIT-LICENSE.txt",
+		"/var/www/html/neweditor/source/node_modules/grunt/node_modules/findup-sync/test/findup-sync_test.js",
+		"/var/www/html/neweditor/source_old/source/index.html",
+		"/var/www/html/neweditor/public/index.html",
+		"/var/www/html/neweditor/heroku/index.php",
+		"/var/www/html/neweditor/heroku/index.html",
+		"/var/www/html/neweditor/heroku/js/detector.js",
+		"/var/www/html/neweditor/public/obj/diamond/ring1.obj",
+		"/var/www/html/neweditor/source/node_modules/grunt-contrib-coffee/tasks/coffee.js",
+		"/var/www/html/neweditor/source/node_modules/grunt/node_modules/coffee-script/Rakefile",
+		"/var/www/html/neweditor/source/node_modules/grunt/README.md",
+		"/var/www/html/neweditor/source_old/source/coffee/_ConvexTextRing.coffee"
+	],
+	"find":
+	{
+		"height": 38.0
+	},
+	"find_in_files":
+	{
+		"height": 93.0,
+		"where_history":
+		[
+			"/var/www/html/neweditor",
+			"<project>"
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"class=\"menu-disabled\"",
+			"menu-disabled\"",
+			"config",
+			"text.textWidth/2",
+			"19.0",
+			".y = -19.0",
+			"+ torus",
+			"+ torus1Y",
+			"9.0",
+			"when \"б\"\n			c = 2.9",
+			"Станислав Ляпцев:",
+			"newText",
+			"geometry.",
+			"geometry",
+			"model = ",
+			"textWidth",
+			"..",
+			"changeFont",
+			"len",
+			"do shiftLt",
+			"+= 0.2",
+			"len - ",
+			"len -",
+			"len-1",
+			"0",
+			"+=",
+			"torus",
+			".map",
+			"map",
+			"console.log",
+			"font",
+			"model",
+			"initPanel",
+			"changeFont",
+			"console.log",
+			"0.8",
+			"changeFont",
+			"0.3",
+			"number",
+			"text",
+			"text'",
+			"fromJSON",
+			"changeFont",
+			"font",
+			"\"x",
+			".5",
+			"textWidth",
+			".toLowerCase",
+			"changeF",
+			"parseInt",
+			"changeSize",
+			"0.08",
+			"sizeDiamond",
+			"DROP",
+			",",
+			"0.1",
+			"0.115",
+			"0.08",
+			"0.1*",
+			"*0.1",
+			"0.1",
+			"0.1*",
+			"children",
+			"sizeDiamond",
+			"*0.05",
+			"combine",
+			"isEmpty",
+			"isEmpty\n",
+			"isEmpty",
+			"changeSizeDiamond",
+			"initPanel",
+			", 90",
+			"changeSize",
+			"example",
+			"138",
+			", 130",
+			"*0.1",
+			"example",
+			"140",
+			", 100,",
+			".sizeDiamond",
+			".size",
+			"Size",
+			"size",
+			"Size",
+			"size",
+			"Size",
+			"size",
+			"backend/diamond",
+			"loader.load",
+			"obj/diamond/",
+			"carve",
+			".obj",
+			"0px",
+			"!important",
+			"0",
+			"12",
+			";",
+			"<li>",
+			"li>",
+			"menu-disabled",
+			":hover",
+			"menu-img",
+			"<a ",
+			"load",
+			"loadModel",
+			"example \"",
+			"example",
+			"Scale",
+			"position",
+			"THREE.MatriX4",
+			"pviot",
+			"livereload",
+			".sizeDiamond",
+			"changeSizeDiamond",
+			"eSizeDiamond",
+			"SizeDiamond",
+			".size",
+			"config.p1.size",
+			"loader.load",
+			"example",
+			".scale.y",
+			"scale",
+			"config.p1.size",
+			"config.p1.size*0.05",
+			".stl",
+			"arguments_",
+			"triangle"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 4,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "source/coffee/main.coffee",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 11146,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1042,
+								1042
+							]
+						],
+						"settings":
+						{
+							"color_scheme": "Packages/User/Color Highlighter/themes/Coffee Dark Roast.tmTheme",
+							"syntax": "Packages/Better CoffeeScript/CoffeeScript.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 539.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "source/panels/p1.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3536,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"color_scheme": "Packages/User/Color Highlighter/themes/Coffee Dark Roast.tmTheme",
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "source/index.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2731,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1987,
+								1987
+							]
+						],
+						"settings":
+						{
+							"color_scheme": "Packages/User/Color Highlighter/themes/Coffee Dark Roast.tmTheme",
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 780.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "public/js/config.js",
+					"semi_transient": true,
+					"settings":
+					{
+						"buffer_size": 1712,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1704,
+								1677
+							]
+						],
+						"settings":
+						{
+							"color_scheme": "Packages/User/Color Highlighter/themes/Coffee Dark Roast.tmTheme",
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 3.0,
+						"translation.y": 1053.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "backend/js/fonts/calligraph.typeface.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 257442,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								257442,
+								257442
+							]
+						],
+						"settings":
+						{
+							"color_scheme": "Packages/User/Color Highlighter/themes/Coffee Dark Roast.tmTheme",
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+						},
+						"translation.x": 2633840.02881,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "source/Gruntfile.coffee",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 4189,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								185,
+								185
+							]
+						],
+						"settings":
+						{
+							"color_scheme": "Packages/User/Color Highlighter/themes/Coffee Dark Roast.tmTheme",
+							"syntax": "Packages/Theme - Coffee/Prefs/Langs/Gruntfile Coffee.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 25.0
+	},
+	"input":
+	{
+		"height": 35.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"project": "neweditor.sublime-project",
+	"replace":
+	{
+		"height": 46.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+			[
+				"call",
+				"backend/js/fonts/calligraph.typeface.js"
+			],
+			[
+				"aldr",
+				"backend/js/fonts/aldrich.typeface.js"
+			],
+			[
+				"grunt",
+				"source/Gruntfile.coffee"
+			],
+			[
+				"index",
+				"source/index.html"
+			],
+			[
+				"maincof",
+				"source/coffee/main.coffee"
+			],
+			[
+				"mainjs",
+				"backend/js/main.js"
+			],
+			[
+				"config",
+				"source/coffee/config.coffee"
+			],
+			[
+				"p4",
+				"source/panels/p4.html"
+			],
+			[
+				"jquery",
+				"public/js/jqueryui.js"
+			],
+			[
+				"three",
+				"public/js/three.js"
+			],
+			[
+				"three.js",
+				"backend/js/three.js"
+			],
+			[
+				"main",
+				"source/coffee/main.coffee"
+			],
+			[
+				"diam",
+				"source/coffee/_diamondring.coffee"
+			],
+			[
+				"nekla",
+				"source/coffee/_necklace.coffee"
+			],
+			[
+				"neck",
+				"source/coffee/_necklace.coffee"
+			],
+			[
+				"inde",
+				"source/index.html"
+			],
+			[
+				"nekl",
+				"source/coffee/_necklace.coffee"
+			],
+			[
+				"dia",
+				"source/coffee/_diamondring.coffee"
+			],
+			[
+				"gru",
+				"source/Gruntfile.coffee"
+			],
+			[
+				"frontendinde",
+				"frontend/index.php"
+			],
+			[
+				"di",
+				"source/coffee/_diamondring.coffee"
+			],
+			[
+				"diamondri",
+				"source/coffee/_diamondring.coffee"
+			],
+			[
+				"p1",
+				"source/panels/p1.html"
+			],
+			[
+				"maincss",
+				"source/css/main.css"
+			],
+			[
+				"obj",
+				"heroku/js/obj.js"
+			],
+			[
+				"ojb",
+				"public/js/obj.js"
+			],
+			[
+				"stl",
+				"public/js/stl.js"
+			],
+			[
+				"diamondring",
+				"source/coffee/_diamondring.coffee"
+			],
+			[
+				"raw",
+				"source/coffee/_raw.coffee"
+			],
+			[
+				"neckl",
+				"source/coffee/_necklace.coffee"
+			],
+			[
+				"conve",
+				"source/coffee/_ConvexTextRing.coffee"
+			],
+			[
+				"manife",
+				"public/manifest.appcache"
+			],
+			[
+				"p2",
+				"source/panels/p2.html"
+			],
+			[
+				"database",
+				"/var/www/html/nl/application/config/database.php"
+			],
+			[
+				"p5",
+				"source/panels/p5.html"
+			],
+			[
+				"nek",
+				"source/coffee/__necklace-text.coffee"
+			],
+			[
+				"jsdif",
+				"public/js/jsdiff.js"
+			],
+			[
+				"jsdiff",
+				"public/js/jsdiff.js"
+			],
+			[
+				"mainc",
+				"source/coffee/main.coffee"
+			],
+			[
+				"neklace",
+				"source/coffee/_necklace.coffee"
+			],
+			[
+				"nekc",
+				"source/coffee/__necklace-text.coffee"
+			],
+			[
+				"mai",
+				"source/coffee/main.coffee"
+			],
+			[
+				"nelacte",
+				"source/coffee/__necklace-text.coffee"
+			],
+			[
+				"neklca",
+				"source/coffee/_necklace.coffee"
+			],
+			[
+				"mess",
+				"source/coffee/_messager.coffee"
+			],
+			[
+				"necla-te",
+				"source/coffee/__necklace-text.coffee"
+			],
+			[
+				"_nec",
+				"source/coffee/_necklace.coffee"
+			],
+			[
+				"nec",
+				"source/coffee/_necklace.coffee"
+			],
+			[
+				"p3",
+				"source/panels/p3.html"
+			],
+			[
+				"2",
+				"source/node_modules/grunt-contrib-uglify/node_modules/uglify-js/test/compress/issue-22.js"
+			],
+			[
+				"ma",
+				"source/css/main.css"
+			],
+			[
+				"gra",
+				"source/coffee/graphics.coffee"
+			],
+			[
+				"grap",
+				"source/coffee/graphics.coffee"
+			],
+			[
+				"grapcof",
+				"source/coffee/graphics.coffee"
+			],
+			[
+				"maincoff",
+				"source/coffee/main.coffee"
+			],
+			[
+				"css",
+				"source/bower_components/jquery/src/css.js"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"selected_items":
+		[
+			[
+				"ex",
+				"/Applications/MAMP/htdocs/expedit.dev/expedit.dev.sublime-project"
+			],
+			[
+				"",
+				"/Applications/MAMP/htdocs/jass-new.dev/jass-new.sublime-project"
+			],
+			[
+				"do",
+				"/var/www/html/do-like/do-like.sublime-project"
+			]
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 243.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

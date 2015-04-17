@@ -1,0 +1,159 @@
+<div id="font-select">
+	<select id="font-select-list" style="display: none;">
+		<option value="calligraph">calligraph</option>
+	</select>
+	<span id="font-select-list_SelectBoxItContainer" class="selectboxit-container selectboxit-container" role="combobox" aria-autocomplete="list" aria-haspopup="true" aria-expanded="false" aria-owns="font-select-list_SelectBoxItOptions">
+		<span id="font-select-list_SelectBoxIt" class="selectboxit  selectboxit-enabled selectboxit-btn" name="" tabindex="0" unselectable="on">
+			<span class="selectboxit-option-icon-container"> <i id="font-select-list_SelectBoxItDefaultIcon" class="selectboxit-default-icon selectboxit-option-icon selectboxit-container" unselectable="on"></i>
+			</span>
+			<span id="font-select-list_SelectBoxItText" class="selectboxit-text" unselectable="on" data-val="calligraph" aria-live="polite" style="max-width: 100px;">calligraph</span>
+			<span id="font-select-list_SelectBoxItArrowContainer" class="selectboxit-arrow-container" unselectable="on"> <i id="font-select-list_SelectBoxItArrow" class="selectboxit-arrow selectboxit-default-arrow" unselectable="on"></i>
+			</span>
+		</span>
+		<ul id="font-select-list_SelectBoxItOptions" class="selectboxit-options selectboxit-list" tabindex="-1" role="listbox" aria-hidden="true" style="display: none;">
+			<li data-id="0" data-val="calligraph" data-disabled="false" class="selectboxit-option selectboxit-focus selectboxit-option-first" role="option">
+				<a class="selectboxit-option-anchor">
+					<span class="selectboxit-option-icon-container">
+						<i class="selectboxit-option-icon  selectboxit-container"></i>
+					</span>
+					calligraph&nbsp&nbsp&nbsp
+				</a>
+			</li>
+			<!-- <li data-id="0" data-val="Damion" data-disabled="false" class="selectboxit-option selectboxit-focus selectboxit-option-first" role="option">
+				<a class="selectboxit-option-anchor">
+					<span class="selectboxit-option-icon-container">
+						<i class="selectboxit-option-icon  selectboxit-container"></i>
+					</span>
+					damion
+				</a>
+			</li>
+			<li data-id="1" data-val="Harlow" data-disabled="false" class="selectboxit-option selectboxit-focus selectboxit-option-first" role="option">
+				<a class="selectboxit-option-anchor">
+					<span class="selectboxit-option-icon-container">
+						<i class="selectboxit-option-icon  selectboxit-container"></i>
+					</span>
+					harlow
+				</a>
+			</li>
+			<li data-id="2" data-val="Molle" data-disabled="false" class="selectboxit-option selectboxit-focus selectboxit-option-first" role="option">
+				<a class="selectboxit-option-anchor">
+					<span class="selectboxit-option-icon-container">
+						<i class="selectboxit-option-icon  selectboxit-container"></i>
+					</span>
+					molle
+				</a>
+			</li> -->
+			<li data-id="1" data-val="Norican" data-disabled="false" class="selectboxit-option selectboxit-focus selectboxit-option-first" role="option">
+				<a class="selectboxit-option-anchor">
+					<span class="selectboxit-option-icon-container">
+						<i class="selectboxit-option-icon  selectboxit-container"></i>
+					</span>
+					norican
+				</a>
+			</li>
+			<!-- <li data-id="4" data-val="Script" data-disabled="false" class="selectboxit-option selectboxit-focus selectboxit-option-first" role="option">
+
+				<a class="selectboxit-option-anchor">
+					<span class="selectboxit-option-icon-container">
+						<i class="selectboxit-option-icon  selectboxit-container"></i>
+					</span>
+					mt
+				</a>
+			</li>
+			<li data-id="5" data-val="Segoe" data-disabled="false" class="selectboxit-option selectboxit-focus selectboxit-option-first" role="option">
+				<a class="selectboxit-option-anchor">
+					<span class="selectboxit-option-icon-container">
+						<i class="selectboxit-option-icon  selectboxit-container"></i>
+					</span>
+					segoe script
+				</a>
+			</li>
+			<li data-id="6" data-val="icomoon" data-disabled="false" class="selectboxit-option selectboxit-focus selectboxit-option-first" role="option">
+				<a class="selectboxit-option-anchor">
+					<span class="selectboxit-option-icon-container">
+						<i class="selectboxit-option-icon  selectboxit-container"></i>
+					</span>
+					rawsymbols
+				</a>
+			</li>
+			<li data-id="7" data-val="Yellowtail" data-disabled="false" class="selectboxit-option selectboxit-focus selectboxit-option-first" role="option">
+				<a class="selectboxit-option-anchor">
+					<span class="selectboxit-option-icon-container">
+						<i class="selectboxit-option-icon  selectboxit-container"></i>
+					</span>
+					yellowtail
+				</a>
+			</li> -->
+
+		</ul>
+	</span>
+	<div id="word-input" class="aline">
+		<input type="text" id="text-input" class="text-input" value="myo" onkeypress="if(event.keyCode==13||event.which==13){return false;}">
+	<div id="char-counter">7</div>
+</div>
+
+<div style="clear:both"></div>
+<div style="margin-top: 20px;">
+	<div style="float:left">Материал:</div>
+	<div title="Золото" class="gold"></div>
+	<div title="Серебро" class="silver"></div>
+</div>
+<div style="clear:both"></div>
+<hr style="color:#fff">
+<div style="margin-top:40px;margin-left: 120px" id="price-block">
+	<div id="price" style="float:left;font-size: 15px;">24411.0</div>
+	<div style="float:left;font-size: 15px;">&nbspр.</div>
+	<div style="float:left;margin-right: 0;margin-left: auto;margin-top: -4px;">
+		<a href="javascript:void(0);" id="submit"></a>
+	</div>
+</div>
+<input type="hidden" name="p-model-id" value="4">
+<input type="hidden" name="p-material" value="silver">
+<input type="hidden" name="p-price" value="">
+<input type="hidden" name="p-selected-font" value="">
+<input type="hidden" name="p-panel-text" value="MYO"></div>
+<script>
+function textMaxLength(e) {
+	var left_char_number = Math.floor(config.p4.maxTextLength);
+
+	var current_text = $('#text-input').val();
+
+	// if($("input[name=p-selected-font]").val() == 'norican') {
+		// current_text = current_text.replace(/[^a-zA-Z]/g, '');
+	// }
+	// else {
+	current_text = current_text.replace(/[^a-zA-Zа-яА-ЯёЁ]/g, '').toLowerCase()
+	// }
+
+	if(current_text.length > config.p4.maxTextLength) {
+		$('#text-input').val(''+current_text.slice(0, config.p4.maxTextLength));
+		return;
+	}
+
+	if(current_text.length < 1) {
+		$('#text-input').val(''+current_text);
+		return;
+	}
+
+	if(current_text.length <= left_char_number) {
+		$('#text-input').val(''+current_text);
+		$('input[name=p-panel-text]').val(''+current_text);
+		left_char_number -= $('#text-input').val().length;
+		$('#char-counter').html(''+left_char_number);
+
+	} else {
+		var new_text = current_text.substr(0, left_char_number);
+		$('#text-input').val(''+new_text);
+		$('input[name=p-panel-text]').val(''+new_text);
+		$('#char-counter').html('0');
+	}
+	modelParams.changeText($('#text-input').val())
+	renderf();
+}
+
+
+function setCaretToPos (input, pos) {
+  setSelectionRange(input, pos, pos);
+}
+
+</script>

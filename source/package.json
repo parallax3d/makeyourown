@@ -1,0 +1,22 @@
+{
+  "name": "neweditor",
+  "version": "0.0.0",
+  "description": "ERROR: No README.md file found!",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": "",
+  "author": "",
+  "license": "BSD",
+  "devDependencies": {
+    "grunt": "~0.4.5",
+    "grunt-contrib-watch": "~0.6.1",
+    "grunt-contrib-coffee": "~0.10.1",
+    "grunt-contrib-uglify": "~0.4.0",
+    "grunt-wrap": "~0.3.0",
+    "grunt-contrib-htmlmin": "~0.3.0",
+    "grunt-contrib-cssmin": "~0.9.0",
+    "grunt-notify": "~0.3.0"
+  }
+}

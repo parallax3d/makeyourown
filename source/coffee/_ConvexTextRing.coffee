@@ -8,7 +8,6 @@ ConvexTextRing = (callback) ->
 	camera.position.y = 80
 	$("#ajax-loading").show()
 
-
 	combine = new THREE.Object3D
 	combine.userData.model = true
 

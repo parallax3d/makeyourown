@@ -4,7 +4,6 @@ NecklaceText = (options) ->
 	size = size or= 5.4
 	height = 0.001
 
-
 	obj = new THREE.Object3D
 	obj.list = []
 	obj.add2 = (e) ->

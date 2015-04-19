@@ -27,7 +27,6 @@ loadedModels =
 	necklace: null
 	raw: null
 
-
 $(document).ready ->
 
 	$(window).bind "beforeunload", (e) ->
@@ -39,7 +38,6 @@ $(document).ready ->
 		n = parseInt location.hash[1]
 		# n = 1 if n != 4 or n != 1
 		loadModel n
-
 
 	unless Detector.webgl
 		$("#no-webgl").show()

@@ -1,4 +1,5 @@
 formPost = "post_test.php"
+
 config =
 	p1:
 		title: "Diamond Ring"
@@ -71,6 +72,5 @@ config =
 		size: 18
 		height: "280px"
 		price: (obj) ->
-
 			return 5000
 		fonts: [ "scada", "aldrich" ]

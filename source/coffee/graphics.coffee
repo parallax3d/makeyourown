@@ -4,6 +4,7 @@ camera = null
 manager = null
 controls = null
 silverMaterial = null
+
 _global = 
 	rotate: true
 	drift: true
@@ -11,7 +12,9 @@ _global =
 	driftSign: 1
 	driftStep: 0.00003
 	driftSmooth: 0.00006
+
 loader = null
+
 initGraphics = ->
 
 	render = new THREE.WebGLRenderer { antialias:true, alpha: true }
@@ -30,7 +33,6 @@ initGraphics = ->
 	controls.rotateSpeed = 0.5
 	[controls.maxDistance, controls.minDistance] = [38, 18]
 	[controls.minPolarAngle, controls.maxPolarAngle] = [0, Math.PI]
-	
 
 	controls.addEventListener 'change', renderf 
 
@@ -171,4 +173,3 @@ addDriftModelHandlers = ->
 	_global.rotate = false
 	controls.addEventListener 'start', driftModelStartHandler, false
 	controls.addEventListener 'end', driftModelEndHandler, false
-	

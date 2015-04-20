@@ -75,12 +75,17 @@ loadModel = (n) ->
 			modelParams.material = "gold"
 			$("input[name=p-material]").val modelParams.material
 
+		$('.whiteGold').click ->
+			changeMaterialNew scene, "whiteGold"
+			modelParams.material = "whiteGold"
+			$("input[name=p-material]").val modelParams.material
+
 		$('.silver').click ->
 			changeMaterialNew scene, "silver"
 			modelParams.material = "silver"
 			$("input[name=p-material]").val modelParams.material
 
-		$('.silver, .gold').tooltip
+		$('.silver, .gold, .whiteGold').tooltip
 			position:
 				my: "center top"
 				at: "center bottom"

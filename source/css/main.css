@@ -338,7 +338,7 @@ input, textarea {
 	-webkit-box-shadow: none !important;
 	-moz-box-shadow: none !important;
 	box-shadow: none !important;
-	font-family: Georgia, serif !important;
+	font-family: Georgia, serif;
 }
 .gold {
 	cursor: pointer;

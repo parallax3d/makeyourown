@@ -123,12 +123,21 @@ $(document).ready(function() {
 
 	for(var i = 0; i < symbolGroups.length; i++) {
 		var group = symbolGroups[i];
-		var ul = $(container).append('<div class="symbol-group-name">' + group.name + '</div><ul class="symbol-button-trigger-wrapper" id="group_' + i + '"></ul>');
+		var ul = $('<div class="symbol-group-name">' + group.name + '</div><ul class="symbol-button-trigger-wrapper" id="group_' + i + '"></ul>');
+		$(container).append(ul);
 
 		for(var j = 0; j < group.data.length; j++)
 		{
-			var li = '<li class="symbol-button-trigger"><button id="' + group.data[j] + '">' + group.data[j] + '</button></li>';
-			$(ul).find('ul#group_' + i ).append(li);
+			var li = $('<li class="symbol-button-trigger"></li>');
+			$(container).find('ul#group_' + i).append(li);
+
+			var button = $('<button id="' + group.data[j] + '" type="button">' + group.data[j] + '</button>');
+			$(li).append(button);
+
+			$(button).on('click', function(elem) {
+			 console.log(elem, $('#text-input').val());
+				$('#text-input').val($('#text-input').val() + elem.target.getAttribute("id"));
+			});
 		}
 	}
 });

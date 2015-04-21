@@ -21,6 +21,7 @@ NecklaceText = (options) ->
 	for lt, i in str.split ""
 		options.shift = textWidth
 		options.lt = lt
+		options.twoWords = lt + str[ i+1 ]
 		textMesh = NeklaceLt options
 
 		textWidth += textMesh.width
@@ -68,7 +69,7 @@ NecklaceText = (options) ->
 	return obj
 
 NeklaceLt = (options) ->
-	{font, lt, radius, size, index} = options
+	{font, lt, radius, size, index, twoWords} = options
 	size = size or= 5.4
 	height = 0.001
 	textGeom = new THREE.TextGeometry lt, { font: font, size: size, height: height, bevelEnabled: true, bevelThickness: 0.5, bevelSize: 0.2, curveSegments: 10 }
@@ -78,7 +79,13 @@ NeklaceLt = (options) ->
 	textMesh = new THREE.Mesh textGeom, silverMaterial.clone()
 	textMesh.position.x = options.shift
 	textMesh.lt = lt
-	c = 0.7
+	c = 0.5
+	if (/[А-Я]/g).test(lt)
+		c = 1.0
+
+	console.log "________" + lt
+
+	# For one word
 	switch lt
 		# eng
 		when "t"
@@ -100,10 +107,13 @@ NeklaceLt = (options) ->
 		when "z"
 			c = 1.2
 		when "x"
+			c = 0.5
+		when "i"
 			c = 0.8
+
 		# rus
 		when "д"
-			c = 1.4
+			c = 1.3
 		when "р"
 			c = 1.4
 		when "у"
@@ -112,8 +122,52 @@ NeklaceLt = (options) ->
 			c = 1.2
 		when "б"
 			c = 2.9
-
-
+		when "я"
+			c = 0.6
+		when "а"
+			c = 0.65
+		when "е"
+			c = 0.4
+		when "и"
+			c = 0.2
+		when "Н"
+			c = 1
+		when "о"
+			c = 0.3
+		when "Б"
+			c = 1.1
+		when "м"
+			c = 0.6
+		when "ё"
+			c = 0.6
+		when "А"
+			c = 0.95
+		when "Е"
+				c = 0.2
+		when "Т"
+			c = 1.4
+		when "К"
+			c = 1.2
+		when "С"
+			c = 0.7
+		when "Г"
+			c = 3.3
+		when "М"
+			c = 0.8
+		when "П"
+			c = 1.4
+		when "И"
+			c = 0.5
+		when "В"
+			c = 0.8
+			# For tho twoWords
+	switch twoWords
+		when "оз"
+			c = 0.3
+		when "ут"
+			c = 1.2
+		when "Ст"
+			c = 0.8
 	textMesh.width = textGeom.boundingBox.max.x - textGeom.boundingBox.min.x - c*1.2
 
 

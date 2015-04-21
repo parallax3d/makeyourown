@@ -52,7 +52,6 @@
 				</a>
 			</li>
 			<!-- <li data-id="4" data-val="Script" data-disabled="false" class="selectboxit-option selectboxit-focus selectboxit-option-first" role="option">
-
 				<a class="selectboxit-option-anchor">
 					<span class="selectboxit-option-icon-container">
 						<i class="selectboxit-option-icon  selectboxit-container"></i>
@@ -123,7 +122,7 @@ function textMaxLength(e) {
 		// current_text = current_text.replace(/[^a-zA-Z]/g, '');
 	// }
 	// else {
-	current_text = current_text.replace(/[^a-zA-Zа-яА-ЯёЁ]/g, '')
+	current_text = current_text.replace(/[^a-zA-Zа-яА-ЯёЁ\-]/g, '')
 	// }
 
 	if(current_text.length > config.p4.maxTextLength) {

@@ -354,6 +354,38 @@ initPanel = ->
 		e.stopPropagation()
 		return
 
+	###############################################################################################
+	# Symbols initialization
+	symbolGroups = [{
+		name: 'Знаки зодиака',
+		data: ["\uF0AD", "\uF0AE", "\uF0AF", "\uF0B0", "\uF0B1", "\uF0B2", "\uF0B3", "\uF0B4", "\uF0B5", "\uF0B6", "\uF0B7", "\uF0B8"]
+	}, {
+		name: 'Символы',
+		data: ["\uE000", "\uE001", "\uE002", "\uE003", "\uE004", "\uE005",
+					 "\uE006", "\uE007", "\uE008", "\uE009", "\uE010", "\uE011", "\uE012", "\uE013", "\uE014", "\uE015", "\uE016", "\uE017", "\uE018", "\uE019", "\uE00A", "\uE00B", "\uE00C", "\uE00D",
+					 "\uE00D", "\uE00F", "\uE01A", "\uE01B", "\uE01C", "\uE01D", "\uE01E", "\uE01F", "\uE020", "\uE021", "\uE022", "\uE023", "\uE024", "\uE025", "\uE026", "\uE027", "\uE028", "\uE019",
+					 "\uE02A", "\uE02B", "\uE02C", "\uE02D", "\uE02E", "\uE02F", "\uF095", "\uF096", "\uF097"]
+	}, {
+		name: 'Цифры',
+		data: ["\uF098", "\uF099", "\uF09A", "\uF09B", "\uF09C", "\uF09D", "\uF09E", "\uF09F", "\uF0A0",
+					 "\uF0A1", "\uF0A2", "\uF0A3", "\uF0A4", "\uF0A5", "\uF0A6", "\uF0A7", "\uF0A8", "\uF0A9", "\uF0AA", "\uF0AB", "\uF0AC"]
+	}];
+
+	container = $('#symbol-select-list_SelectBoxItOptions').get(0);
+	for group, i in symbolGroups
+		ul = $('<div class="symbol-group-name">' + group.name + '</div><ul class="symbol-button-trigger-wrapper" id="group_' + i + '"></ul>');
+		$(container).append(ul);
+
+		for data, j in group.data
+			li = $('<li class="symbol-button-trigger"></li>');
+			$(container).find('ul#group_' + i).append(li);
+
+			button = $('<button id="' + group.data[j] + '" type="button">' + group.data[j] + '</button>');
+			$(li).append(button);
+
+			$(button).click (elem) ->
+				$('#text-input').val($('#text-input').val() + elem.target.getAttribute("id"));
+
 	$(":not(#font-select-list_SelectBoxItArrowContainer)").click (event) ->
 	  $("#font-select-list_SelectBoxItOptions").hide()  unless $(event.target).is("#font-select-list_SelectBoxItOptions")
 	  return

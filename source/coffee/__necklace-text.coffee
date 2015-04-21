@@ -110,7 +110,8 @@ NeklaceLt = (options) ->
 			c = 0.5
 		when "i"
 			c = 0.8
-
+		when "K"
+			c = 1.2
 		# rus
 		when "д"
 			c = 1.3
@@ -160,6 +161,7 @@ NeklaceLt = (options) ->
 			c = 0.5
 		when "В"
 			c = 0.8
+
 			# For tho twoWords
 	switch twoWords
 		when "оз"

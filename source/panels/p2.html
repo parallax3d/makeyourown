@@ -108,7 +108,13 @@
 $(document).ready(function() {
 	var ul = $('#symbol-select-list_SelectBoxItOptions').find("ul").get(0);
 	//var li = '<li class="symbol-button-trigger"><button id="">' + '\xA5' + '</button></li>';
-	var symbols = ['\xA5'];
+	var symbols = ['U+F0AD',"U+F0AE","U+F0AF","U+F0B0","U+F0B1","U+F0B2","U+F0B3","U+F0B4","U+F0B5","U+F0B6","U+F0B7","U+F0B8","U+E000","U+E001","U+E002","U+E003","U+E004","U+E005",
+					"U+E006","U+E007","U+E008","U+E009","U+E010","U+E011","U+E012","U+E013","U+E014","U+E015","U+E016","U+E017","U+E018","U+E019","U+E00A","U+E00B","U+E00C",'U+E00D',
+					"U+E00D","U+E00F","U+E01A","U+E01B","U+E01C","U+E01D","U+E01E","U+E01F","U+E020","U+E021","U+E022","U+E023","U+E024","U+E025","U+E026","U+E027","U+E028","U+E019",
+					"U+EO2A","U+E02B","U+E02C","U+E02D","U+E02E","U+E02F","U+F095","U+F096","U+F097","U+F098","U+F099","U+F09A","U+F09B","U+F09C","U+F09D","U+F09E","U+F09F","U+F0A0",
+					'U+F0A1',"U+F0A2","U+F0A3","U+F0A4","U+F0A5","U+F0A6","U+F0A7","U+F0A8","U+F0A9","U+F0AA","U+F0AB","U+F0AC"];
+
+
 	for(var i = 0; i < symbols.length; i++ ) {
 		var li = '<li class="symbol-button-trigger"><button id="' + symbols[i] + '">' + symbols[i] + '</button></li>';
 		$(ul).append(li);

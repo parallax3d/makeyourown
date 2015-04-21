@@ -93,11 +93,15 @@ changeMeshMaterial = (mesh, type) ->
 			mesh.material.specular.setHex 0xaa5500
 			mesh.material.color.setHex 0xaa5500
 			mesh.material.emissive.setHex 0xaaaa44
+		else if type == "whiteGold"
+			mesh.material.specular.setHex 0xffffff
+			mesh.material.color.setHex 0xfefcff
+			mesh.material.emissive.setHex 0xaaaaaa
 		else if type == "silver"
 			mesh.material.specular.setHex 0xffffff
 			mesh.material.color.setHex 0xaaaaaa
 			mesh.material.emissive.setHex 0x555555
-			
+
 changeMaterialNew = (obj, type) ->
 	for child in obj.children
 		changeMeshMaterial child, type

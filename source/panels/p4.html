@@ -2,14 +2,28 @@
 	<select id="font-select-list" style="display: none;">
 		<option value="calligraph">calligraph</option>
 	</select>
-	<span id="font-select-list_SelectBoxItContainer" class="selectboxit-container selectboxit-container" role="combobox" aria-autocomplete="list" aria-haspopup="true" aria-expanded="false" aria-owns="font-select-list_SelectBoxItOptions">
-		<span id="font-select-list_SelectBoxIt" class="selectboxit  selectboxit-enabled selectboxit-btn" name="" tabindex="0" unselectable="on">
+	<div id="font-select-list_SelectBoxItContainer" class="selectboxit-container selectboxit-container" role="combobox" aria-autocomplete="list" aria-haspopup="true" aria-expanded="false" aria-owns="font-select-list_SelectBoxItOptions">
+		<div id="word-input" class="aline">
+			<input type="text" id="text-input" class="text-input" value="myo" onkeypress="if(event.keyCode==13||event.which==13){return false;}">
+			<div id="char-counter">7</div>
+		</div>
+
+		<div id="font-select-list_SelectBoxIt" class="selectboxit  selectboxit-enabled selectboxit-btn" name="" tabindex="0" unselectable="on">
 			<span class="selectboxit-option-icon-container"> <i id="font-select-list_SelectBoxItDefaultIcon" class="selectboxit-default-icon selectboxit-option-icon selectboxit-container" unselectable="on"></i>
 			</span>
 			<span id="font-select-list_SelectBoxItText" class="selectboxit-text" unselectable="on" data-val="calligraph" aria-live="polite" style="max-width: 100px;">calligraph</span>
 			<span id="font-select-list_SelectBoxItArrowContainer" class="selectboxit-arrow-container" unselectable="on"> <i id="font-select-list_SelectBoxItArrow" class="selectboxit-arrow selectboxit-default-arrow" unselectable="on"></i>
 			</span>
-		</span>
+		</div>
+
+		<div id="symbol-select-list_SelectBoxIt" class="selectboxit  selectboxit-enabled selectboxit-btn" name="" tabindex="0" unselectable="on">
+			<span class="selectboxit-option-icon-container"> <i id="symbol-select-list_SelectBoxItDefaultIcon" class="selectboxit-default-icon selectboxit-option-icon selectboxit-container" unselectable="on"></i></span>
+			<span id="symbol-select-list_SelectBoxItArrowContainer" class="selectboxit-arrow-container" unselectable="on"> <i id="symbol-select-list_SelectBoxItArrow" class="selectboxit-arrow selectboxit-default-arrow" unselectable="on"></i></span>
+		</div>
+
+		<div id="symbol-select-list_SelectBoxItOptions" class="selectboxit-options selectboxit-list" tabindex="-1" role="listbox" aria-hidden="true" style="display: none; width: 300px;">
+		</div>
+
 		<ul id="font-select-list_SelectBoxItOptions" class="selectboxit-options selectboxit-list" tabindex="-1" role="listbox" aria-hidden="true" style="display: none;">
 			<li data-id="0" data-val="calligraph" data-disabled="false" class="selectboxit-option selectboxit-focus selectboxit-option-first" role="option">
 				<a class="selectboxit-option-anchor">
@@ -85,10 +99,7 @@
 			</li> -->
 
 		</ul>
-	</span>
-	<div id="word-input" class="aline">
-		<input type="text" id="text-input" class="text-input" value="myo" onkeypress="if(event.keyCode==13||event.which==13){return false;}">
-	<div id="char-counter">7</div>
+	</div>
 </div>
 
 <div style="clear:both"></div>

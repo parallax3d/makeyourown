@@ -78,7 +78,7 @@ NeklaceLt = (options) ->
 	textMesh = new THREE.Mesh textGeom, silverMaterial.clone()
 	textMesh.position.x = options.shift
 	textMesh.lt = lt
-	c = 0.7
+	c = 0.5
 	switch lt
 		# eng
 		when "t"
@@ -101,9 +101,11 @@ NeklaceLt = (options) ->
 			c = 1.2
 		when "x"
 			c = 0.8
+		when "x"
+			c = 0.8
 		# rus
 		when "д"
-			c = 1.4
+			c = 1.3
 		when "р"
 			c = 1.4
 		when "у"
@@ -112,8 +114,14 @@ NeklaceLt = (options) ->
 			c = 1.2
 		when "б"
 			c = 2.9
-
-
+		when "я"
+			c = 0.6
+		when "а"
+			c = 0.6
+		when "е"
+			c = 0.4
+		when "в"
+			c = 0.6
 	textMesh.width = textGeom.boundingBox.max.x - textGeom.boundingBox.min.x - c*1.2
 
 

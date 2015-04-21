@@ -23,9 +23,7 @@
 			<span id="symbol-select-list_SelectBoxItArrowContainer" class="selectboxit-arrow-container" unselectable="on"> <i id="symbol-select-list_SelectBoxItArrow" class="selectboxit-arrow selectboxit-default-arrow" unselectable="on"></i></span>
 		</div>
 
-		<div id="symbol-select-list_SelectBoxItOptions" class="selectboxit-options selectboxit-list" tabindex="-1" role="listbox" aria-hidden="true" style="display: none;">
-			<ul>
-			</ul>
+		<div id="symbol-select-list_SelectBoxItOptions" class="selectboxit-options selectboxit-list" tabindex="-1" role="listbox" aria-hidden="true" style="display: none; width: 300px;">
 		</div>
 
 		<ul id="font-select-list_SelectBoxItOptions" class="selectboxit-options selectboxit-list" tabindex="-1" role="listbox" aria-hidden="true" style="display: none;">
@@ -106,18 +104,32 @@
 <script>
 
 $(document).ready(function() {
-	var ul = $('#symbol-select-list_SelectBoxItOptions').find("ul").get(0);
-	//var li = '<li class="symbol-button-trigger"><button id="">' + '\xA5' + '</button></li>';
-	var symbols = ['U+F0AD',"U+F0AE","U+F0AF","U+F0B0","U+F0B1","U+F0B2","U+F0B3","U+F0B4","U+F0B5","U+F0B6","U+F0B7","U+F0B8","U+E000","U+E001","U+E002","U+E003","U+E004","U+E005",
-					"U+E006","U+E007","U+E008","U+E009","U+E010","U+E011","U+E012","U+E013","U+E014","U+E015","U+E016","U+E017","U+E018","U+E019","U+E00A","U+E00B","U+E00C",'U+E00D',
-					"U+E00D","U+E00F","U+E01A","U+E01B","U+E01C","U+E01D","U+E01E","U+E01F","U+E020","U+E021","U+E022","U+E023","U+E024","U+E025","U+E026","U+E027","U+E028","U+E019",
-					"U+EO2A","U+E02B","U+E02C","U+E02D","U+E02E","U+E02F","U+F095","U+F096","U+F097","U+F098","U+F099","U+F09A","U+F09B","U+F09C","U+F09D","U+F09E","U+F09F","U+F0A0",
-					'U+F0A1',"U+F0A2","U+F0A3","U+F0A4","U+F0A5","U+F0A6","U+F0A7","U+F0A8","U+F0A9","U+F0AA","U+F0AB","U+F0AC"];
+	var container = $('#symbol-select-list_SelectBoxItOptions').get(0);
 
+	var symbolGroups = [{
+		name: 'Знаки зодиака',
+		data: ["\uF0AD", "\uF0AE", "\uF0AF", "\uF0B0", "\uF0B1", "\uF0B2", "\uF0B3", "\uF0B4", "\uF0B5", "\uF0B6", "\uF0B7", "\uF0B8"]
+	}, {
+		name: 'Символы',
+		data: ["\uE000", "\uE001", "\uE002", "\uE003", "\uE004", "\uE005",
+			"\uE006", "\uE007", "\uE008", "\uE009", "\uE010", "\uE011", "\uE012", "\uE013", "\uE014", "\uE015", "\uE016", "\uE017", "\uE018", "\uE019", "\uE00A", "\uE00B", "\uE00C", "\uE00D",
+			"\uE00D", "\uE00F", "\uE01A", "\uE01B", "\uE01C", "\uE01D", "\uE01E", "\uE01F", "\uE020", "\uE021", "\uE022", "\uE023", "\uE024", "\uE025", "\uE026", "\uE027", "\uE028", "\uE019",
+			"\uE02A", "\uE02B", "\uE02C", "\uE02D", "\uE02E", "\uE02F", "\uF095", "\uF096", "\uF097"]
+	}, {
+		name: 'Цифры',
+		data: ["\uF098", "\uF099", "\uF09A", "\uF09B", "\uF09C", "\uF09D", "\uF09E", "\uF09F", "\uF0A0",
+			"\uF0A1", "\uF0A2", "\uF0A3", "\uF0A4", "\uF0A5", "\uF0A6", "\uF0A7", "\uF0A8", "\uF0A9", "\uF0AA", "\uF0AB", "\uF0AC"]
+	}];
 
-	for(var i = 0; i < symbols.length; i++ ) {
-		var li = '<li class="symbol-button-trigger"><button id="' + symbols[i] + '">' + symbols[i] + '</button></li>';
-		$(ul).append(li);
+	for(var i = 0; i < symbolGroups.length; i++) {
+		var group = symbolGroups[i];
+		var ul = $(container).append('<div class="symbol-group-name">' + group.name + '</div><ul class="symbol-button-trigger-wrapper" id="group_' + i + '"></ul>');
+
+		for(var j = 0; j < group.data.length; j++)
+		{
+			var li = '<li class="symbol-button-trigger"><button id="' + group.data[j] + '">' + group.data[j] + '</button></li>';
+			$(ul).find('ul#group_' + i ).append(li);
+		}
 	}
 });
 

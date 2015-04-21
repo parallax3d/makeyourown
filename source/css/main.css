@@ -1,6 +1,6 @@
 @font-face {
 	font-family: 'Symbols';
-	src: url('/fonts/Symbol.ttf') format("truetype");
+	src: url('../fonts/Symbol.ttf') format("truetype");
 	font-weight: 400;
 	font-style: normal;
 }
@@ -173,29 +173,52 @@ html, body {
 
 }
 
-
 /* Symbols */
 .symbol-button-trigger {
+	float: left;
 	display: inline-block;
 	width: 32px;
 	margin: 2px;
 	padding: 2px 3px;
 }
 
+#symbol-select-list_SelectBoxItOptions {
+	height: 282px;
+	overflow-y: scroll;
+}
+
+.symbol-button-trigger-wrapper {
+	padding: 0;
+	margin: 0;
+	text-align: center;
+	width: 100%;
+	height: auto;
+}
+
 .symbol-button-trigger button {
 	border: none;
 	font-family: Symbols;
 	font-size: 20px;
-	background-color: #fff;
+	background-color: transparent;
 	text-align: center;
 	cursor: pointer;
+}
+
+.symbol-button-trigger:hover {
+	background-color: #e8eaec;
+}
+
+.symbol-group-name {
+	margin: 8px;
+	text-align: center;
+	font-size: 1.5em;
+	clear:both;
 }
 
 .symbol-list-display {
 	padding-right: 0px;
 	padding-left: 0px;
 	text-align: center;
-
 }
 
 .selectboxit-arrow-container {
@@ -378,13 +401,12 @@ input, textarea {
 	z-index: 4;
 }
 #text-input {
-//	width: 215px !important;
 	width: 230px;
-	_width: 215px;
 	height: 38px;
 	line-height: 38px;
 	padding: 0 10px 0 5px;
 	font-size: 14px;
+	font-family: Georgia, serif, Symbols;
 	color: #686d71;
 	border: 0;
 }

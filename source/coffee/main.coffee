@@ -372,7 +372,6 @@ initPanel = ->
 
 	$("input[name=p-selected-font]").val config.p3.defaultFont
 
-
 	if textMaxLength?
 		$("#text-input").bind "input", textMaxLength
 

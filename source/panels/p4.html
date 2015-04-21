@@ -122,7 +122,7 @@ function textMaxLength(e) {
 		// current_text = current_text.replace(/[^a-zA-Z]/g, '');
 	// }
 	// else {
-	current_text = current_text.replace(/[^a-zA-Zа-яА-ЯёЁ]/g, '').toLowerCase()
+	current_text = current_text.replace(/[^a-zA-Zа-яА-ЯёЁ]/g, '')
 	// }
 
 	if(current_text.length > config.p4.maxTextLength) {

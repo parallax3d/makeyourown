@@ -79,11 +79,9 @@ Necklace = (callback) ->
 			# $('#text-input').val(currentStr)
 
 		modelParams.changeText ""
-		modelParams.changeText currentStr.toLowerCase()
 
 	modelParams.changeText = (str, isEmpty) ->
 
-		str = str.toLowerCase()
 		console.log 'xxx: ' + str
 
 		if str.length > 11

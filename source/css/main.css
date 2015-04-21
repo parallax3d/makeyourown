@@ -171,19 +171,24 @@ html, body {
     width: 40px;
 }
 
-.selectboxit-container .selectboxit {
-    width: 40px;
-    height: 40px;
-    border-radius: 0;
-    background: url(images/font_logo.jpg) no-repeat;
-    margin-top: 1px;
-    margin: 0 0 0 250px !important;
+.selectboxit-container .selectboxit, .selectboxicon  {
+	display: block;
+	float: left;
+	width: 40px;
+	height: 40px;
+	border-radius: 0;
+	background: url(images/font_logo.jpg) no-repeat;
+	margin-top: 1px;
+	margin: 0 0 0 0 !important;
+}
+
+.selectboxit-container .selectboxicon {
+    background: url(images/icon_button.jpg) no-repeat;
 }
 
 .selectboxit-container .selectboxit-options {
-
-	min-width: inherit !important;
 	right: 0 !important;
+	top: 40px;
 }
 
 .selectboxit-container .selectboxit-options {
@@ -323,11 +328,9 @@ input, textarea {
 }
 #word-input {
 	float: left;
-	width: 249px !important;
-	width: 250px;
+	width: 220px;
 	_width: 249px;
 	height: 38px !important;
-	height: 40px;
 	_height: 38px;
 	line-height: 38px;
 	border: 1px solid #dbdcdd;
@@ -339,11 +342,9 @@ input, textarea {
 	background: #fefefe;
 	position: relative;
 	z-index: 4;
-	margin-top: -40px;
 }
 #text-input {
-	float: left;
-	width: 215px !important;
+//	width: 215px !important;
 	width: 230px;
 	_width: 215px;
 	height: 38px;

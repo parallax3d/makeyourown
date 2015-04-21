@@ -349,9 +349,18 @@ initPanel = ->
 	  e.stopPropagation()
 	  return
 
+	$("#symbol-select-list_SelectBoxItArrowContainer").click (e) ->
+		$("#symbol-select-list_SelectBoxItOptions").toggle()
+		e.stopPropagation()
+		return
+
 	$(":not(#font-select-list_SelectBoxItArrowContainer)").click (event) ->
 	  $("#font-select-list_SelectBoxItOptions").hide()  unless $(event.target).is("#font-select-list_SelectBoxItOptions")
 	  return
+
+	$(":not(#symbol-select-list_SelectBoxItArrowContainer)").click (event) ->
+		$("#symbol-select-list_SelectBoxItOptions").hide()  unless $(event.target).is("#symbol-select-list_SelectBoxItOptions")
+		return
 
 	$(".selectboxit-option").click ->
 	  $(".selectboxit-focus").removeClass "selectboxit-focus"

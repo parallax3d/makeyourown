@@ -1,3 +1,10 @@
+@font-face {
+	font-family: 'Symbols';
+	src: url('/fonts/Symbol.ttf') format("truetype");
+	font-weight: 400;
+	font-style: normal;
+}
+
 html, body {
 	margin: 0;
 	padding: 0;
@@ -167,23 +174,50 @@ html, body {
 }
 
 
+/* Symbols */
+.symbol-button-trigger {
+	display: inline-block;
+	width: 32px;
+	margin: 2px;
+	padding: 2px 3px;
+}
+
+.symbol-button-trigger button {
+	border: none;
+	font-family: Symbols;
+	font-size: 20px;
+	background-color: #fff;
+	text-align: center;
+	cursor: pointer;
+}
+
+.symbol-list-display {
+	padding-right: 0px;
+	padding-left: 0px;
+	text-align: center;
+
+}
+
 .selectboxit-arrow-container {
     width: 40px;
 }
 
-.selectboxit-container .selectboxit, .selectboxicon  {
+.selectboxit-container .selectboxit  {
 	display: block;
 	float: left;
 	width: 40px;
 	height: 40px;
 	border-radius: 0;
-	background: url(images/font_logo.jpg) no-repeat;
 	margin-top: 1px;
 	margin: 0 0 0 0 !important;
 }
 
-.selectboxit-container .selectboxicon {
-    background: url(images/icon_button.jpg) no-repeat;
+#font-select-list_SelectBoxIt {
+	background: url(images/font_logo.jpg) no-repeat;
+}
+
+#symbol-select-list_SelectBoxIt {
+	background: url(images/symbol_button.jpg) no-repeat;
 }
 
 .selectboxit-container .selectboxit-options {
@@ -370,6 +404,7 @@ div.select_list a {
 	margin-left: 40px;
 	display: none;
 }
+
 #YEARSTYLE_SELECTION {
 	background-color: #f6f6f6;
 	-moz-border-radius: .4em;

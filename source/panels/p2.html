@@ -18,8 +18,14 @@
 			<span id="font-select-list_SelectBoxItArrowContainer" class="selectboxit-arrow-container" unselectable="on"> <i id="font-select-list_SelectBoxItArrow" class="selectboxit-arrow selectboxit-default-arrow" unselectable="on"></i></span>
 		</div>
 
-		<div id="font-select-list_SelectBoxIcon" class="selectboxicon  selectboxit-enabled selectboxit-btn" name="" tabindex="0" unselectable="on">
-			<span class="selectboxit-option-icon-container"> <i id="font-select-list_SelectBoxItDefaultIcon" class="selectboxit-default-icon selectboxit-option-icon selectboxit-container" unselectable="on"></i></span>
+		<div id="symbol-select-list_SelectBoxIt" class="selectboxit  selectboxit-enabled selectboxit-btn" name="" tabindex="0" unselectable="on">
+			<span class="selectboxit-option-icon-container"> <i id="symbol-select-list_SelectBoxItDefaultIcon" class="selectboxit-default-icon selectboxit-option-icon selectboxit-container" unselectable="on"></i></span>
+			<span id="symbol-select-list_SelectBoxItArrowContainer" class="selectboxit-arrow-container" unselectable="on"> <i id="symbol-select-list_SelectBoxItArrow" class="selectboxit-arrow selectboxit-default-arrow" unselectable="on"></i></span>
+		</div>
+
+		<div id="symbol-select-list_SelectBoxItOptions" class="selectboxit-options selectboxit-list" tabindex="-1" role="listbox" aria-hidden="true" style="display: none;">
+			<ul>
+			</ul>
 		</div>
 
 		<ul id="font-select-list_SelectBoxItOptions" class="selectboxit-options selectboxit-list" tabindex="-1" role="listbox" aria-hidden="true" style="display: none;">
@@ -99,6 +105,16 @@
 <input type="hidden" name="p-material" value="silver">
 <script>
 
+$(document).ready(function() {
+	var ul = $('#symbol-select-list_SelectBoxItOptions').find("ul").get(0);
+	//var li = '<li class="symbol-button-trigger"><button id="">' + '\xA5' + '</button></li>';
+	var symbols = ['\xA5'];
+	for(var i = 0; i < symbols.length; i++ ) {
+		var li = '<li class="symbol-button-trigger"><button id="' + symbols[i] + '">' + symbols[i] + '</button></li>';
+		$(ul).append(li);
+	}
+});
+
 function textMaxLength() {
 	var left_char_number = Math.floor(config.p2.maxTextLength);
 
@@ -146,4 +162,5 @@ function textMaxLength() {
 	modelParams.changeText(current_text)
 	renderf()
 }
+
 </script>

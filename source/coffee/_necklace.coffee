@@ -76,7 +76,7 @@ Necklace = (callback) ->
 
 		if font == "norican" and currentStr.match /[а-яА-ЯёЁ]/g
 			return false
-			# $('#text-input').val(currentStr)
+			 #$('#text-input').val(currentStr)
 
 		modelParams.changeText ""
 

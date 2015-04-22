@@ -116,6 +116,7 @@ ConvexTextRing = (callback) ->
 			fontHeight: 4
 			distance: 1000
 
+		console.log options
 		textRadius = 0
 		fontThickness = 0
 		fontHeight = options.fontHeight
@@ -147,7 +148,6 @@ ConvexTextRing = (callback) ->
 
 		options.amount = amount
 
-
 		m = (p + p + options.thickness - 0.2 - options.fontHeight*0.09) / 2
 
 		options =
@@ -176,6 +176,7 @@ ConvexTextRing = (callback) ->
 
 		k = new THREE.SplineCurve3 qrX(q)
 		options.qup = k
+
 		i = new qtE(@qab, options)
 		i.create()
 
@@ -307,7 +308,7 @@ class qtE extends THREE.Mesh
 		super
 		@qab = b
 		@text = new THREE.Object3D()
-		@qwh = []
+		@geometryTexts = []
 		return  if a.qup is `undefined`
 		@qiu()
 
@@ -318,10 +319,10 @@ class qtE extends THREE.Mesh
 
 		qrU @options, a
 
-		@qqe = true
+		@flag_qqe = true
 		return
 
-	qtE::qpo = (d) ->
+	qtE::createTextGeometry = (d) ->
 		c = new THREE.TextGeometry d, @options
 		c.computeBoundingBox()
 		c.computeVertexNormals()
@@ -389,9 +390,9 @@ class qtE extends THREE.Mesh
 
 	qtE::update = (a) ->
 		if a.text isnt @options.text or a.font isnt @options.font
-			@qqe = true
+			@flag_qqe = true
 		else
-			@qqe = false
+			@flag_qqe = false
 
 		qrU = (c, a) ->
 			for b of a
@@ -404,9 +405,9 @@ class qtE extends THREE.Mesh
 
 	qtE::qau = ->
 		a = @qab
-		for b of @qwh
-			a.qaq @qwh[b]
-		@qwh.length = 0
+		for b of @geometryTexts
+			a.qaq @geometryTexts[b]
+		@geometryTexts.length = 0
 		@create()
 		return
 
@@ -436,24 +437,23 @@ class qtE extends THREE.Mesh
 			f.push @options.qup.getPointAt(h)
 			n++
 
-		if @qqe
-			for a of @qwh
-				@text.remove @qwh[a]
-			@qwh.length = 0
-
+		if @flag_qqe
+			for a of @geometryTexts
+				@text.remove @geometryTexts[a]
+			@geometryTexts.length = 0
 
 		k = 0
 		for p of @options.text
 
 			if @options.text[p] isnt " "
 				t = undefined
-				if @qqe
-					t = @qpo(@options.text[p])
-					@qwh.push t
+				if @flag_qqe
+					t = @createTextGeometry(@options.text[p])
+					@geometryTexts.push t
 					@text.add t
 					t.qpm = true
 				else
-					t = @qwh[k]
+					t = @geometryTexts[k]
 					k++
 
 				t.position = f[p]

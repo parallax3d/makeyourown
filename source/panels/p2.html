@@ -108,8 +108,8 @@ function textMaxLength() {
 
 	var current_text = $('#text-input').val();
 
-	current_text = current_text.toUpperCase().replace(/[^a-zA-Zа-яА-ЯёЁ0-9]/g, '');
-	
+	//current_text = current_text.toUpperCase().replace(/[^a-zA-Zа-яА-ЯёЁ0-9]/g, '');
+
 	if(current_text.length < 1) {
 		$('#text-input').val(''+current_text);
 		return;
@@ -120,6 +120,7 @@ function textMaxLength() {
 		$('#text-input').val(''+current_text);
 		left_char_number -= $('#text-input').val().length;
 		$('#char-counter').html(''+left_char_number);
+
 
 	} else {
 
@@ -147,7 +148,7 @@ function textMaxLength() {
 
 	$('input[name=p-panel-text]').val(current_text);
 	// if(loadedModels.mring == null)
-	modelParams.changeText(current_text)
+	modelParams.changeText(current_text);
 	renderf()
 }
 

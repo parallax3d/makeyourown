@@ -72,6 +72,11 @@ NeklaceLt = (options) ->
 	{font, lt, radius, size, index, twoWords} = options
 	size = size or= 5.4
 	height = 0.001
+
+	unless (/[a-zA-Zа-яА-Я]/g).test(lt)
+		font = 'icomoon'
+		size *= 2.0
+
 	textGeom = new THREE.TextGeometry lt, { font: font, size: size, height: height, bevelEnabled: true, bevelThickness: 0.5, bevelSize: 0.2, curveSegments: 10 }
 
 	textGeom.computeBoundingBox()

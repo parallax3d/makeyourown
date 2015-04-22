@@ -385,6 +385,7 @@ initPanel = ->
 
 			$(button).click (elem) ->
 				$('#text-input').val($('#text-input').val() + elem.target.getAttribute("id"));
+				textMaxLength()
 
 	$(":not(#font-select-list_SelectBoxItArrowContainer)").click (event) ->
 	  $("#font-select-list_SelectBoxItOptions").hide()  unless $(event.target).is("#font-select-list_SelectBoxItOptions")

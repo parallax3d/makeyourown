@@ -124,16 +124,16 @@
 <input type="hidden" name="p-selected-font" value="">
 <input type="hidden" name="p-panel-text" value="MYO"></div>
 <script>
-function textMaxLength(e) {
+function textMaxLength() {
 	var left_char_number = Math.floor(config.p4.maxTextLength);
 
 	var current_text = $('#text-input').val();
 
 	// if($("input[name=p-selected-font]").val() == 'norican') {
-		// current_text = current_text.replace(/[^a-zA-Z]/g, '');
+		 //current_text = current_text.replace(/[^a-zA-Z]/g, '');
 	// }
 	// else {
-	current_text = current_text.replace(/[^a-zA-Zа-яА-ЯёЁ\-]/g, '')
+		//current_text = current_text.replace(/[^a-zA-Zа-яА-ЯёЁ\-]/g, '')
 	// }
 
 	if(current_text.length > config.p4.maxTextLength) {
@@ -158,6 +158,7 @@ function textMaxLength(e) {
 		$('input[name=p-panel-text]').val(''+new_text);
 		$('#char-counter').html('0');
 	}
+
 	modelParams.changeText($('#text-input').val())
 	renderf();
 }

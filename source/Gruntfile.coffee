@@ -17,6 +17,7 @@ module.exports = (grunt) ->
 						"coffee/_necklace.coffee"
 						"coffee/_raw.coffee"
 						"coffee/graphics.coffee"
+						"coffee/_rawround.coffee"
 						"coffee/main.coffee" ]
 					"../public/js/config.js": [ "coffee/config.coffee" ]
 
@@ -106,6 +107,7 @@ module.exports = (grunt) ->
 					'../public/panels/p3.html': 'panels/p3.html'
 					'../public/panels/p4.html': 'panels/p4.html'
 					'../public/panels/p5.html': 'panels/p5.html'
+					'../public/panels/p6.html': 'panels/p6.html'
 		cssmin:
 			minify:
 				expand: true,

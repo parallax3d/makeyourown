@@ -26,6 +26,7 @@ loadedModels =
 	messager: null
 	necklace: null
 	raw: null
+	rawround: null
 
 $(document).ready ->
 

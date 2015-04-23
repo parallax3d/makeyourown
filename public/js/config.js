@@ -77,5 +77,18 @@ config = {
       return 5000;
     },
     fonts: ["scada", "aldrich"]
+  },
+  p6: {
+    title: "Raw-Round",
+    id: "p6",
+    menuIcon: "css/icons/product7.png",
+    defaultFont: "calligraph",
+    model: RawRound,
+    maxTextLength: 15,
+    height: "220px",
+    price: function() {
+      return 0;
+    },
+    fonts: ["calligraph", "Damion", "Harlow", "Molle", "Norican", "Script", "Segoe", "icomoon", "Yellowtail"]
   }
 };

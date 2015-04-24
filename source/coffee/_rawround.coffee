@@ -1,12 +1,10 @@
 RawRound = (callback) ->
-	_global.rotate = false
-	do removeRotateModelHandlers
-	do addDriftModelHandlers
+	do addRotateModelHandlers
 
 	[controls.minPolarAngle, controls.maxPolarAngle] = [0, Math.PI]
 	controls.maxDistance = 38
-	camera.position.z = 200
-	camera.position.y = 230
+	camera.position.z = 100
+	camera.position.y = 80
 
 	combine = new THREE.Object3D
 	combine.userData.model = true
@@ -16,8 +14,7 @@ RawRound = (callback) ->
 		a = text.textWidth/(config.p6.size / 2)
 
 		text.userData.text = true
-		text.rotation.x = Math.PI/2
-		text.position.y = -config.p6.size / 2
+		text.position.z = config.p6.size / 2
 		combine.add text
 
 		ring = new THREE.Object3D
@@ -33,12 +30,10 @@ RawRound = (callback) ->
 
 		ring.userData.ring = true
 		ring.rotation.z = Math.PI/2 - (4 * Math.PI)/180
-		ring.rotation.x = Math.PI
-		ring.position.z = 1.1
+		ring.rotation.x = Math.PI/2
+		ring.position.y = 1.2
 		combine.add ring
 
-		# combine.add object
-		# combine.add clone
 		combine.scale.x = combine.scale.y = combine.scale.z = config.p6.size * 0.05
 		combine.position.y = 10
 		scene.add combine
@@ -57,7 +52,6 @@ RawRound = (callback) ->
 
 		if font == "norican" and currentStr.match /[а-яА-ЯёЁ]/g
 			return false
-			 #$('#text-input').val(currentStr)
 
 		modelParams.changeText ""
 
@@ -74,19 +68,15 @@ RawRound = (callback) ->
 
 			newText = NecklaceText str: str, font: config.p4.defaultFont, rotation: (config.p6.size / 2)
 			newText.userData.text = true
-			newText.rotation.x = Math.PI/2
-			newText.position.y = -config.p6.size / 2
-#			newText.position.y = -20
-#			newText.position.x = -newText.textWidth/2
+			newText.position.z = config.p6.size / 2
+
 
 			a = newText.textWidth/(config.p6.size / 2)
-#			r.rotation.z = a/2
 			for ring2 in r.children when ring2.userData.ring2 == true
 				ring2.rotation.z =  Math.PI - a
 
 			obj.add newText
 
-#			changeMaterialNew obj, modelParams.material
 
 	modelParams.functionsTable["p-selected-font"] = modelParams.changeFont
 	modelParams.functionsTable["p-panel-text"] = modelParams.changeText

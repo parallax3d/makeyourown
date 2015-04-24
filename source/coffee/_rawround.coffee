@@ -5,59 +5,47 @@ RawRound = (callback) ->
 
 	[controls.minPolarAngle, controls.maxPolarAngle] = [0, Math.PI]
 	controls.maxDistance = 38
-	camera.position.z = 100
-	camera.position.y = 80
+	camera.position.z = 200
+	camera.position.y = 230
 
 	combine = new THREE.Object3D
 	combine.userData.model = true
 
 	if loadedModels.rawround == null
-		$("#ajax-loading").show()
-		loader.load "obj/textnecklace/necklace.obj", (object) ->
+		text = NecklaceText str: "myo", font: config.p6.defaultFont, rotation: ( config.p6.size / 2 )
+		a = text.textWidth/(config.p6.size / 2)
 
-			object.traverse (child) ->
-				if child instanceof THREE.Mesh
-					child.material = silverMaterial.clone()
+		text.userData.text = true
+		text.rotation.x = Math.PI/2
+		text.position.y = -config.p6.size / 2
+		combine.add text
 
-			text = NecklaceText str: "myo", font: config.p6.defaultFont, rotation: 9.55
-			text.userData.text = true
-			object.position.y = -10.0
-			object.position.x = -text.textWidth/2
-			object.userData.first = true
+		ring = new THREE.Object3D
+		geom = new THREE.TorusGeometry config.p6.size/2, 0.4, 50, 50, Math.PI
+		mesh = new THREE.Mesh geom, silverMaterial.clone()
+		mesh.userData.ring1 = true
+		ring.add mesh
 
-			clone = object.clone()
-			clone.rotation.y = Math.PI
-			clone.position.y = -19.0
-			clone.position.x = text.textWidth/2
-			clone.userData.first = undefined
-			clone.userData.second = true
+		clone = mesh.clone()
+		clone.userData.ring2 = true
+		clone.rotation.z = Math.PI - a
+		ring.add clone
 
-			# combine.add object
-			# combine.add clone
-			combine.position.y = 27
+		ring.userData.ring = true
+		ring.rotation.z = Math.PI/2 - (4 * Math.PI)/180
+		ring.rotation.x = Math.PI
+		ring.position.z = 1.1
+		combine.add ring
 
-			text.position.y = -20
-			text.position.x = -text.textWidth/2
+		# combine.add object
+		# combine.add clone
+		combine.scale.x = combine.scale.y = combine.scale.z = config.p6.size * 0.05
+		combine.position.y = 10
+		scene.add combine
 
-			a = text.textWidth/9.55
-			geom = new THREE.TorusGeometry 9.55, 0.5, 50, 50, Math.PI*2 - a
-			mesh = new THREE.Mesh geom, silverMaterial.clone()
-			mesh.rotation.x = Math.PI/2
-			mesh.rotation.z = Math.PI
-			mesh.position.y = -20
-			mesh.position.z = -10
-			#mesh.rotation.y = a
-			mesh.userData.torus1 = true
-
-			combine.add mesh
-			combine.add text
-
-			scene.add combine
-
-			loadedModels.rawround = combine.clone()
-
-			$("#ajax-loading").hide()
-			renderf()
+		loadedModels.rawround = combine.clone()
+		$("#ajax-loading").hide()
+		renderf()
 	else
 		combine = loadedModels.rawround
 		scene.add combine
@@ -75,48 +63,30 @@ RawRound = (callback) ->
 
 	modelParams.changeText = (str, isEmpty) ->
 
-		console.log 'xxx: ' + str
-
-		if str.length > 11
-			camera.position.z = 40
-			controls.maxDistance = 40
-		else
-			controls.maxDistance = 30
-
-		torus1Y = 0
-		torus2Y = 0
-
 		for obj in scene.children when obj? and obj.userData.model == true
+			r = null
 
+			for ring in obj.children when ring.userData.ring == true
+				r = ring
 			for text in obj.children when text? and text.userData.text == true
 
 				obj.remove text
 
-			newText = NecklaceText str: str, font: config.p4.defaultFont, rotation: 9.55
+			newText = NecklaceText str: str, font: config.p4.defaultFont, rotation: (config.p6.size / 2)
 			newText.userData.text = true
-			newText.position.y = -20
-			newText.position.x = -newText.textWidth/2
+			newText.rotation.x = Math.PI/2
+			newText.position.y = -config.p6.size / 2
+#			newText.position.y = -20
+#			newText.position.x = -newText.textWidth/2
+
+			a = newText.textWidth/(config.p6.size / 2)
+#			r.rotation.z = a/2
+			for ring2 in r.children when ring2.userData.ring2 == true
+				ring2.rotation.z =  Math.PI - a
 
 			obj.add newText
 
-			c1 = 0
-			c2 = 0
-			if str[0] == "л" or str[0] == "м"
-				c1 -= 1.0
-			if str.slice -1 == "л" or str.slice -1 == "м"
-				c2 -= 0.5
-
-			for torus in obj.children.slice(0) when torus? and (torus.userData.torus1 == true)
-				torus.position.x = -newText.textWidth/2 - c1
-			#for torus in obj.children.slice(0) when torus? and (torus.userData.torus2 == true)
-				#torus.position.x = newText.textWidth/2 - c2
-
-			for first in obj.children when first.userData.first == true
-				first.position.x = -newText.geometry.textWidth/2 - c1
-			#for second in obj.children when second.userData.second == true
-				#second.position.x = newText.geometry.textWidth/2 - c2
-
-			changeMaterialNew obj, modelParams.material
+#			changeMaterialNew obj, modelParams.material
 
 	modelParams.functionsTable["p-selected-font"] = modelParams.changeFont
 	modelParams.functionsTable["p-panel-text"] = modelParams.changeText

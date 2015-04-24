@@ -4,8 +4,9 @@ camera = null
 manager = null
 controls = null
 silverMaterial = null
+testMaterial = null
 
-_global = 
+_global =
 	rotate: true
 	drift: true
 	driftMax: 0.04
@@ -131,6 +132,16 @@ createMaterial = (type) ->
 		emissive: 0x555555
 		envMap: envMap
 		shininess: 100
+
+	testMaterial = new THREE.MeshPhongMaterial
+			# light
+			specular: 0xff0000
+		# intermediate
+			color: 0xff0000
+		# dark
+			emissive: 0x555555
+			envMap: envMap
+			shininess: 100
 
 addRotateModelHandlers = ->
 	do removeDriftModelHandlers

@@ -81,6 +81,7 @@ config =
 		defaultFont: "calligraph"
 		model: RawRound
 		maxTextLength: 15
+		size: 18
 		height: "280px"
 		price: ->
 			return 0

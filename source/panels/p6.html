@@ -102,34 +102,37 @@
 	</div>
 </div>
 
-<div style="margin-top:10px">
-	<span style="float:left;margin-top: 5px;width:80px;margin-right:10px;"> Размер кольца:</span>
-	<a href="javascript:void(0);" class="minus"></a>
-	<input type="text" id="p-size-display" value="18 мм">
-	<a href="javascript:void(0);" class="plus"></a>
-
-</div>
-<div style="clear:both"></div>
-<div style="margin-top: 20px;">
-	<div style="float:left">Материал:</div>
-	<div title="Золото" class="gold"></div>
-	<div title="Белое Золото" class="whiteGold"></div>
-	<div title="Серебро" class="silver"></div>
-</div>
-<div style="clear:both"></div>
-<hr style="color:#fff">
-<div style="margin-top:40px;margin-left: 120px" id="price-block">
-	<div id="price" style="float:left;font-size: 15px;">24411.0</div>
-	<div style="float:left;font-size: 15px;">&nbspр.</div>
-	<div style="float:left;margin-right: 0;margin-left: auto;margin-top: -4px;">
-		<a href="javascript:void(0);" id="submit"></a>
+<div>
+	<div style="margin-top:10px">
+		<span style="float:left;margin-top: 5px;width:80px;margin-right:10px;"> Размер кольца:</span>
+		<a href="javascript:void(0);" class="minus"></a>
+		<input type="text" id="p-size-display" value="18 мм"/>
+		<a href="javascript:void(0);" class="plus"></a>
 	</div>
+	<div style="clear:both"></div>
+
+	<div style="margin-top: 20px;">
+		<div style="float:left">Материал:</div>
+		<div title="Золото" class="gold"></div>
+		<div title="Белое Золото" class="whiteGold"></div>
+		<div title="Серебро" class="silver"></div>
+	</div>
+	<div style="clear:both"></div>
+	<hr style="color:#fff">
+	<div style="margin-top:40px;margin-left: 120px" id="price-block">
+		<div id="price" style="float:left;font-size: 15px;">24411.0</div>
+		<div style="float:left;font-size: 15px;">&nbspр.</div>
+		<div style="float:left;margin-right: 0;margin-left: auto;margin-top: -4px;">
+			<a href="javascript:void(0);" id="submit"></a>
+		</div>
+	</div>
+	<input type="hidden" name="p-model-id" value="4">
+	<input type="hidden" name="p-material" value="silver">
+	<input type="hidden" name="p-price" value="">
+	<input type="hidden" name="p-selected-font" value="">
+	<input type="hidden" name="p-panel-text" value="MYO">
 </div>
-<input type="hidden" name="p-model-id" value="4">
-<input type="hidden" name="p-material" value="silver">
-<input type="hidden" name="p-price" value="">
-<input type="hidden" name="p-selected-font" value="">
-<input type="hidden" name="p-panel-text" value="MYO"></div>
+
 <script>
 function textMaxLength() {
 	var left_char_number = Math.floor(config.p4.maxTextLength);

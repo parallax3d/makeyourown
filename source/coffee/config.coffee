@@ -81,7 +81,7 @@ config =
 		defaultFont: "calligraph"
 		model: RawRound
 		maxTextLength: 15
-		height: "220px"
+		height: "280px"
 		price: ->
 			return 0
 		fonts: [ "calligraph", "Damion", "Harlow", "Molle", "Norican", "Script", "Segoe", "icomoon", "Yellowtail" ]

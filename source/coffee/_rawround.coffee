@@ -77,6 +77,7 @@ RawRound = (callback) ->
 
 			obj.add newText
 
+			changeMaterialNew obj, modelParams.material
 
 	modelParams.functionsTable["p-selected-font"] = modelParams.changeFont
 	modelParams.functionsTable["p-panel-text"] = modelParams.changeText

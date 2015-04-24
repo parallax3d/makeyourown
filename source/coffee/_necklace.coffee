@@ -44,7 +44,7 @@ Necklace = (callback) ->
 			text.position.y = -20
 			text.position.x = -text.textWidth/2
 
-			geom = new THREE.TorusGeometry 0.6,  0.2, 32, 32
+			geom = new THREE.TorusGeometry 0.6, 0.2, 32, 32
 			mesh = new THREE.Mesh geom, silverMaterial.clone()
 			mesh.position.y = -18.7
 			mesh.position.x = -text.textWidth/2

@@ -1,20 +1,11 @@
 NecklaceText = (options) ->
-	{font, str, radius, size} = options
+	{font, str, radius, size, rotation} = options
 
 	size = size or= 5.4
+	rotation = rotation or=0
 	height = 0.001
 
-	obj = new THREE.Object3D
-	obj.list = []
-	obj.add2 = (e) ->
-		# @list.push e
-		@add e
-	obj.add2To = (e, pos) ->
-		# @list.splice pos, 0, e
-		@add e
-	obj.remove2 = (index) ->
-		@remove @children[index]
-		# @list.splice index, 1
+	geom = new THREE.Geometry
 
 	textWidth = 0
 
@@ -23,53 +14,48 @@ NecklaceText = (options) ->
 		options.lt = lt
 		options.twoWords = lt + str[ i+1 ]
 		textMesh = NeklaceLt options
+		geom.merge textMesh.geometry
 
 		textWidth += textMesh.width
 
-		obj.add2 textMesh
+#		obj.add2 textMesh
+
+	obj = new THREE.Mesh geom, silverMaterial.clone()
+#	obj.list = []
+#	obj.add2 = (e) ->
+#		# @list.push e
+#		@add e
+#	obj.add2To = (e, pos) ->
+#		# @list.splice pos, 0, e
+#		@add e
+#	obj.remove2 = (index) ->
+#		@remove @children[index]
+	# @list.splice index, 1
 
 	c = 0
-	# if str[0] == "j"
-	# 	c += 2
-	# if str.slice -1 == "в"
-	# 	c += 0.0
-	# if str[0] == "р"
-	# 	c += 0.6
-	# if str[0] == "p"
-	# 	c += 0.6
-	# if str[0] == "f"
-	# 	c += 1.3
-	# if str.slice -1 == "ь" || str.slice -1 == "ъ"
-	# 	c -= 0.8
-	# if str.slice -1 == "з"
-	# 	c += 0.8
-	# if str.slice -1 == "у"
-	# 	c += 0.5
-	# if str.slice -1 == "ю"
-	# 	c -= 0.8
-	# if str.slice -1 == "d"
-	# 	c += 0.4
-	# if str[str.length - 1] == "б"
-	# 	c += 2.0
-	# if str[str.length - 1] == "t"
-	# 	c += 0.5
-	# if str[str.length - 1] == "d"
-	# 	c += 0.5
-	# if str[str.length - 1] == "f"
-	# 	c += 0.5
-	# if str[str.length - 1] == "l"
-	# 	c += 0.5
-	# if font == 'norican'
-	# 	if str.slice -1 == "x"
-	# 		c -= 0.4
-
 	obj.textWidth = textWidth - c
 	obj.nowText = str
+
+	textRotation = (geometry, v3, c) ->
+		vertList = geometry.vertices
+		c = Math.abs 0 - v3.z
+		g = 0 - v3.z
+		for i, t of vertList
+			vert = vertList[i]
+			f = vert.x / c
+			h = c * Math.sin(f)
+			g = c * Math.cos(f)
+			e = (new THREE.Vector2(h, g)).normalize()
+			vert.x = h + v3.x + e.x * vert.z
+			vert.z = g + v3.z + e.y * vert.z
+
+	if rotation != 0
+		textRotation geom, new THREE.Vector3(0, 0, -1 * rotation)
 
 	return obj
 
 NeklaceLt = (options) ->
-	{font, lt, radius, size, index, twoWords} = options
+	{font, lt, radius, size, index, twoWords, shift} = options
 	size = size or= 5.4
 	height = 0.001
 
@@ -176,6 +162,6 @@ NeklaceLt = (options) ->
 		when "Ст"
 			c = 0.8
 	textMesh.width = textGeom.boundingBox.max.x - textGeom.boundingBox.min.x - c*1.2
-
+	textMesh.geometry.applyMatrix new THREE.Matrix4().makeTranslation shift + c, 0, 0
 
 	return textMesh

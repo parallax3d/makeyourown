@@ -315,7 +315,7 @@ RingText = (options, offsetsDisabled=false, messager=false) ->
 		geom.merge textGeom
 
 
-	qiW = (geometry, v3, c) ->
+	textRotation = (geometry, v3, c) ->
 		vertList = geometry.vertices
 		c = Math.abs 0 - v3.z
 		g = 0 - v3.z
@@ -330,9 +330,9 @@ RingText = (options, offsetsDisabled=false, messager=false) ->
 
 	textMesh = new THREE.Mesh geom, silverMaterial.clone()
 	if messager
-		qiW geom, new THREE.Vector3(0, 0, -8.9) #-9.55)
+		textRotation geom, new THREE.Vector3(0, 0, -8.9) #-9.55)
 	else
-		qiW geom, new THREE.Vector3(0, 0, -9.55)
+		textRotation geom, new THREE.Vector3(0, 0, -9.55)
 
 	if ("Ф" == str)
 		aT -= 0.15

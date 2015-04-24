@@ -3,14 +3,10 @@ RawRound = (callback) ->
 	do removeRotateModelHandlers
 	do addDriftModelHandlers
 
-	controls.minPolarAngle = 1.25
-	controls.maxPolarAngle = 1.4
-	controls.maxDistance = 30
-	controls.center = new THREE.Vector3
-	controls.camera = new THREE.Vector3
-	camera.position.x = 0
-	camera.position.y = 0
-	camera.position.z = 25
+	[controls.minPolarAngle, controls.maxPolarAngle] = [0, Math.PI]
+	controls.maxDistance = 38
+	camera.position.z = 100
+	camera.position.y = 80
 
 	combine = new THREE.Object3D
 	combine.userData.model = true
@@ -23,10 +19,9 @@ RawRound = (callback) ->
 				if child instanceof THREE.Mesh
 					child.material = silverMaterial.clone()
 
-			text = NecklaceText str: "myo", font: config.p6.defaultFont
+			text = NecklaceText str: "myo", font: config.p6.defaultFont, rotation: 9.55
 			text.userData.text = true
-
-			object.position.y = -19.0
+			object.position.y = -10.0
 			object.position.x = -text.textWidth/2
 			object.userData.first = true
 
@@ -44,12 +39,14 @@ RawRound = (callback) ->
 			text.position.y = -20
 			text.position.x = -text.textWidth/2
 
-			geom = new THREE.TorusGeometry 5.5, 0.5, 20, 20, Math.PI
+			a = text.textWidth/9.55
+			geom = new THREE.TorusGeometry 9.55, 0.5, 50, 50, Math.PI*2 - a
 			mesh = new THREE.Mesh geom, silverMaterial.clone()
 			mesh.rotation.x = Math.PI/2
-			mesh.position.y = -18.7
-			#mesh.position.x = -text.textWidth/2
-
+			mesh.rotation.z = Math.PI
+			mesh.position.y = -20
+			mesh.position.z = -10
+			#mesh.rotation.y = a
 			mesh.userData.torus1 = true
 
 			combine.add mesh
@@ -95,7 +92,7 @@ RawRound = (callback) ->
 
 				obj.remove text
 
-			newText = NecklaceText str: str, font: config.p4.defaultFont
+			newText = NecklaceText str: str, font: config.p4.defaultFont, rotation: 9.55
 			newText.userData.text = true
 			newText.position.y = -20
 			newText.position.x = -newText.textWidth/2

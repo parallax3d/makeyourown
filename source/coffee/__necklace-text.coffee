@@ -22,17 +22,16 @@ NecklaceText = (options) ->
 
 		height = textGeometry.boundingBox.max.y - textGeometry.boundingBox.min.y
 
+		leftBorder = 1.0
+		rightBorder = 0.5
+
 		# left to right
 		tObj2 = new THREE.Mesh textGeometry
-		origin2 = new THREE.Vector3( textGeometry.boundingBox.min.x, 1.0, 0)
-		direction2 =  new THREE.Vector3(1,0,0)
-		raycaster.set( origin2, direction2 )
-		intersects2 = raycaster.intersectObject( tObj2 )
 
-		textGeometry.applyMatrix new THREE.Matrix4().makeTranslation obj1x - _oldInt - intersects2[0].distance, 0, 0
+		textGeometry.applyMatrix new THREE.Matrix4().makeTranslation obj1x - _oldInt, 0, 0
 
 		#  right to left
-		origin1 = new THREE.Vector3( textGeometry.boundingBox.max.x, 0.5, 0)
+		origin1 = new THREE.Vector3( textGeometry.boundingBox.max.x, rightBorder, 0)
 		direction1=  new THREE.Vector3(-1,0,0)
 		raycaster.set( origin1, direction1 )
 		intersects1 = raycaster.intersectObject( tObj2 )
@@ -46,7 +45,6 @@ NecklaceText = (options) ->
 		options.shift = textWidth
 		options.lt = lt
 		options.twoWords = lt + str[ i+1 ]
-		console.log "---- " + lt
 		geometry = NeklaceSymbol options
 		intersectGeometry geometry
 

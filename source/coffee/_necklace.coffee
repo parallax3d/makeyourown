@@ -10,7 +10,7 @@ Necklace = (callback) ->
 	controls.camera = new THREE.Vector3
 	camera.position.x = 0
 	camera.position.y = 0
-	camera.position.z = 25
+	camera.position.z = 40
 
 	combine = new THREE.Object3D
 	combine.userData.model = true

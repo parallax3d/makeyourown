@@ -9,29 +9,48 @@ NecklaceText = (options) ->
 
 	textWidth = 0
 
+	raycaster = new THREE.Raycaster()
+
+	_oldInt = 0
+	intersectGeometry = (textGeometry) ->
+		geom.computeBoundingBox()
+		textGeometry.computeBoundingBox()
+
+		obj1x = geom.boundingBox.max.x
+		if(geom.vertices.length == 0)
+			obj1x = 0
+
+		height = textGeometry.boundingBox.max.y - textGeometry.boundingBox.min.y
+
+		# left to right
+		tObj2 = new THREE.Mesh textGeometry
+		origin2 = new THREE.Vector3( textGeometry.boundingBox.min.x, 1.0, 0)
+		direction2 =  new THREE.Vector3(1,0,0)
+		raycaster.set( origin2, direction2 )
+		intersects2 = raycaster.intersectObject( tObj2 )
+
+		textGeometry.applyMatrix new THREE.Matrix4().makeTranslation obj1x - _oldInt - intersects2[0].distance, 0, 0
+
+		#  right to left
+		origin1 = new THREE.Vector3( textGeometry.boundingBox.max.x, 0.5, 0)
+		direction1=  new THREE.Vector3(-1,0,0)
+		raycaster.set( origin1, direction1 )
+		intersects1 = raycaster.intersectObject( tObj2 )
+		_oldInt = intersects1[0].distance
+
+		geom.merge textGeometry
+		geom.computeBoundingBox()
+		textWidth = geom.boundingBox.max.x - geom.boundingBox.min.x
+
 	for lt, i in str.split ""
 		options.shift = textWidth
 		options.lt = lt
 		options.twoWords = lt + str[ i+1 ]
-		geometry = NeklaceLt options
-
-		geom.merge geometry
-
-		textWidth += geometry.width
-
-#		obj.add2 textMesh
+		console.log "---- " + lt
+		geometry = NeklaceSymbol options
+		intersectGeometry geometry
 
 	obj = new THREE.Mesh geom, silverMaterial.clone()
-#	obj.list = []
-#	obj.add2 = (e) ->
-#		# @list.push e
-#		@add e
-#	obj.add2To = (e, pos) ->
-#		# @list.splice pos, 0, e
-#		@add e
-#	obj.remove2 = (index) ->
-#		@remove @children[index]
-	# @list.splice index, 1
 
 	c = 0
 	obj.textWidth = textWidth - c
@@ -55,7 +74,7 @@ NecklaceText = (options) ->
 
 	return obj
 
-NeklaceLt = (options) ->
+NeklaceSymbol = (options) ->
 	{font, lt, radius, size, index, twoWords, shift} = options
 	size = size or= 5.4
 	height = 0.001
@@ -66,114 +85,8 @@ NeklaceLt = (options) ->
 
 	textGeom = new THREE.TextGeometry lt, { font: font, size: size, height: height, bevelEnabled: true, bevelThickness: 0.5, bevelSize: 0.2, curveSegments: 10 }
 
-	c = 0.5
-	if (/[А-Я]/g).test(lt)
-		c = 0.8
-	if (/[а-я]/g).test(lt)
-		c = 0.5
-	if (/[A-Z]/g).test(lt)
-		c = 0.7
-	console.log "________" + lt
-
-	# For one word
-	switch lt
-		# eng
-		when "f"
-			c = 1.45
-		when "t"
-			c = 0.8
-		when "l"
-			c = 0.8
-		when "M"
-			c = 0.4
-		when "S"
-			c = 1.1
-		when "p"
-			c = 0.9
-		when "j"
-			c = 1.2
-		when "d"
-			c = 0.8
-		when "g"
-			c = 0.8
-#		when "z"
-#			c = 1.2
-#		when "x"
-#			c = 0.5
-#		when "i"
-#			c = 0.8
-#		when "K"
-#			c = 1.2
-		# rus
-
-		when "д"
-			c = 0.9
-		when "р"
-			c = 0.9
-#		when "у"
-#			c = 1.4
-#		when "з"
-#			c = 1.2
-#		when "б"
-#			c = 2.9
-#		when "я"
-#			c = 0.6
-		when "а"
-			c = 0.6
-#		when "е"
-#			c = 0.4
-#		when "и"
-#			c = -1.2
-#		when "Н"
-#			c = 1
-#		when "о"
-#			c = -0.2
-#		when "Б"
-#			c = 0.9
-#		when "м"
-#			c = -1
-#		when "ё"
-#			c = 0.6
-#		when "А"
-#			c = 0.95
-#		when "Е"
-#				c = 0.2
-#		when "Т"
-#			c = 1.4
-#		when "К"
-#			c = 1.2
-#		when "С"
-#			c = 0.7
-#		when "Г"
-#			c = 3.3
-#		when "М"
-#			c = 0.8
-#		when "П"
-#			c = 1.4
-#		when "И"
-#			c = 0.3
-#		when "В"
-#			c = 0.8
-#		when  "в"
-#			c = 0.1
-#		when  "н"
-#			c = - 2.95
-#		when  "с"
-#			c = - 2.7
-	# For tho twoWords
-#	switch twoWords
-#		when "оз"
-#			c = 0.3
-#		when "ут"
-#			c = 1.2
-#		when "Ст"
-#			c = 1
-#		when "д"
-#			c = 1
-
-	textGeom.computeBoundingBox()
-	textGeom.applyMatrix new THREE.Matrix4().makeTranslation shift + c, 0, 0
-	textGeom.width = textGeom.boundingBox.max.x - textGeom.boundingBox.min.x - c * 1.3
-	textGeom.computeBoundingBox()
+	#	textGeom.computeBoundingBox()
+	#	textGeom.applyMatrix new THREE.Matrix4().makeTranslation shift + c, 0, 0
+	#	textGeom.width = textGeom.boundingBox.max.x - textGeom.boundingBox.min.x - c * 1.3
 
 	return textGeom

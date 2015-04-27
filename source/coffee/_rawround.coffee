@@ -15,28 +15,30 @@ RawRound = (callback) ->
 
 		text.userData.text = true
 		text.position.z = config.p6.size / 2
-		text.position.x = 0.6
+#		text.position.x = 0.6
 		combine.add text
 
 		ring = new THREE.Object3D
-		geom = new THREE.TorusGeometry config.p6.size/2, 0.5, 50, 50, Math.PI
+		geom = new THREE.TorusGeometry config.p6.size/2, 0.5, 20, 50, Math.PI
 		mesh = new THREE.Mesh geom, silverMaterial.clone()
 		mesh.userData.ring1 = true
 		ring.add mesh
 
 		clone = mesh.clone()
 		clone.userData.ring2 = true
-		clone.rotation.z = Math.PI - a
+		clone.rotation.z = Math.PI - a + (5* Math.PI)/180
 		ring.add clone
 
 		ring.userData.ring = true
 		ring.rotation.z = Math.PI/2 - (2* Math.PI)/180
 		ring.rotation.x = Math.PI/2
-		ring.position.y = 1.2
+		ring.position.y = 1.0
 		combine.add ring
 
 		combine.scale.x = combine.scale.y = combine.scale.z = config.p6.size * 0.05
 		combine.position.y = 9
+
+		scene.add combine
 
 		loadedModels.rawround = combine.clone()
 		$("#ajax-loading").hide()
@@ -70,10 +72,9 @@ RawRound = (callback) ->
 			newText.userData.text = true
 			newText.position.z = config.p6.size / 2
 
-
 			a = newText.textWidth/(config.p6.size / 2)
 			for ring2 in r.children when ring2.userData.ring2 == true
-				ring2.rotation.z =  Math.PI - a
+				ring2.rotation.z =  Math.PI - a + (5* Math.PI)/180
 
 			obj.add newText
 

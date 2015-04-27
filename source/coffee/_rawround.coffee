@@ -21,19 +21,18 @@ RawRound = (callback) ->
 		ring = new THREE.Object3D
 		geom = new THREE.TorusGeometry config.p6.size/2, 0.5, 20, 50, Math.PI
 		mesh = new THREE.Mesh geom, silverMaterial.clone()
+		mesh.rotation.z = Math.PI/2 - (2 * Math.PI)/180
+		mesh.rotation.x = Math.PI/2
+		mesh.position.y = 1.0
 		mesh.userData.ring1 = true
-		ring.add mesh
+		combine.add mesh
 
 		clone = mesh.clone()
 		clone.userData.ring2 = true
-		clone.rotation.z = Math.PI - a + (5* Math.PI)/180
-		ring.add clone
-
-		ring.userData.ring = true
-		ring.rotation.z = Math.PI/2 - (2* Math.PI)/180
-		ring.rotation.x = Math.PI/2
-		ring.position.y = 1.0
-		combine.add ring
+		clone.rotation.x = Math.PI/2
+		clone.rotation.z = -Math.PI/2 - a + (5 * Math.PI)/180
+		clone.position.y = 1.0
+		combine.add clone
 
 		combine.scale.x = combine.scale.y = combine.scale.z = config.p6.size * 0.05
 		combine.position.y = 9
@@ -62,7 +61,7 @@ RawRound = (callback) ->
 		for obj in scene.children when obj? and obj.userData.model == true
 			r = null
 
-			for ring in obj.children when ring.userData.ring == true
+			for ring in obj.children when ring.userData.ring2 == true
 				r = ring
 			for text in obj.children when text? and text.userData.text == true
 
@@ -73,8 +72,7 @@ RawRound = (callback) ->
 			newText.position.z = config.p6.size / 2
 
 			a = newText.textWidth/(config.p6.size / 2)
-			for ring2 in r.children when ring2.userData.ring2 == true
-				ring2.rotation.z =  Math.PI - a + (5* Math.PI)/180
+			r.rotation.z = -Math.PI/2 - a + (5 * Math.PI)/180
 
 			obj.add newText
 

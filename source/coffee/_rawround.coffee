@@ -37,6 +37,7 @@ RawRound = (callback) ->
 		combine.scale.x = combine.scale.y = combine.scale.z = config.p6.size * 0.05
 		combine.position.y = 9
 
+
 		scene.add combine
 
 		loadedModels.rawround = combine.clone()

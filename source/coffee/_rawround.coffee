@@ -80,5 +80,13 @@ RawRound = (callback) ->
 
 			changeMaterialNew obj, modelParams.material
 
+	modelParams.changeSize = (v) ->
+
+		for obj in scene.children when obj? and obj.userData.model == true
+			obj.scale.x = obj.scale.y = obj.scale.z = v*0.05
+
+		renderf()
+
 	modelParams.functionsTable["p-selected-font"] = modelParams.changeFont
 	modelParams.functionsTable["p-panel-text"] = modelParams.changeText
+	modelParams.functionsTable["p-size"] = modelParams.changeSize

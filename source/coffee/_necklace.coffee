@@ -5,9 +5,9 @@ Necklace = (callback) ->
 
 	controls.minPolarAngle = 1.25
 	controls.maxPolarAngle = 1.4
-	controls.maxDistance = 30
-	controls.center = new THREE.Vector3
-	controls.camera = new THREE.Vector3
+	controls.maxDistance = 50
+#	controls.center = new THREE.Vector3
+#	controls.camera = new THREE.Vector3
 	camera.position.x = 0
 	camera.position.y = 0
 	camera.position.z = 40
@@ -26,34 +26,14 @@ Necklace = (callback) ->
 			text = NecklaceText str: "myo", font: config.p4.defaultFont
 			text.userData.text = true
 
-			object.position.y = -19.0
-			object.position.x = -text.textWidth/2
-			object.userData.first = true
-
-			clone = object.clone()
-			clone.rotation.y = Math.PI
-			clone.position.y = -19.0
-			clone.position.x = text.textWidth/2
-			clone.userData.first = undefined
-			clone.userData.second = true
-
-			# combine.add object
-			# combine.add clone
-			combine.position.y = 27
-
-			text.position.y = -20
-			text.position.x = -text.textWidth/2
-
 			geom = new THREE.TorusGeometry 0.6, 0.2, 32, 32
 			mesh = new THREE.Mesh geom, silverMaterial.clone()
-			mesh.position.y = -18.7
-			mesh.position.x = -text.textWidth/2
 			mesh.userData.torus1 = true
 
 			mesh2 = new THREE.Mesh geom.clone(), silverMaterial.clone()
 			mesh2.userData.torus2 = true
-			mesh2.position.y = -18.7
-			mesh2.position.x = text.textWidth/2
+
+			modelParams.changeDraw(text, mesh, mesh2)
 
 			combine.add mesh
 			combine.add mesh2
@@ -69,6 +49,31 @@ Necklace = (callback) ->
 		combine = loadedModels.necklace
 		scene.add combine
 		changeMaterialNew combine, modelParams.material
+
+	modelParams.changeDraw = (text, torus1, torus2) ->
+		raycaster = new THREE.Raycaster()
+
+		text.position.x = 0
+
+		#  left to right
+		origin1 = new THREE.Vector3( 0, 0, 0)
+		direction1=  new THREE.Vector3(1,0,0)
+		raycaster.set( origin1, direction1 )
+		intersects1 = raycaster.intersectObject( text )
+
+		#  right to left
+		origin1 = new THREE.Vector3( text.textWidth, 0, 0)
+		direction1=  new THREE.Vector3(-1,0,0)
+		raycaster.set( origin1, direction1 )
+		intersects2 = raycaster.intersectObject( text )
+
+		torus1.position.y = 1.3
+		torus1.position.x = -text.textWidth/2 - intersects1[0].distance + 0.6
+
+		torus2.position.y = 1.3
+		torus2.position.x = text.textWidth/2 + intersects2[0].distance - 0.6
+
+		text.position.x = -text.textWidth/2
 
 	modelParams.changeFont = (currentStr, font) ->
 		font or= config.p4.defaultFont
@@ -95,33 +100,39 @@ Necklace = (callback) ->
 
 		for obj in scene.children when obj? and obj.userData.model == true
 
-			for text in obj.children when text? and text.userData.text == true
+			t1 = null
+			t2 = null
 
+			for torus in obj.children when torus.userData.torus1 == true
+				t1 = torus
+			for torus in obj.children when torus.userData.torus2 == true
+				t2 = torus
+			for text in obj.children when text? and text.userData.text == true
 				obj.remove text
 
 			newText = NecklaceText str: str, font: config.p4.defaultFont
 			newText.userData.text = true
-			newText.position.y = -20
-			newText.position.x = -newText.textWidth/2
+
+			modelParams.changeDraw(newText, t1, t2)
 
 			obj.add newText
 
-			c1 = 0
-			c2 = 0
-			if str[0] == "л" or str[0] == "м"
-				c1 -= 1.0
-			if str.slice -1 == "л" or str.slice -1 == "м"
-				c2 -= 0.5
-
-			for torus in obj.children.slice(0) when torus? and (torus.userData.torus1 == true)
-				torus.position.x = -newText.textWidth/2 - c1
-			for torus in obj.children.slice(0) when torus? and (torus.userData.torus2 == true)
-				torus.position.x = newText.textWidth/2 - c2
-
-			for first in obj.children when first.userData.first == true
-				first.position.x = -newText.geometry.textWidth/2 - c1
-			for second in obj.children when second.userData.second == true
-				second.position.x = newText.geometry.textWidth/2 - c2
+#			c1 = 0
+#			c2 = 0
+#			if str[0] == "л" or str[0] == "м"
+#				c1 -= 1.0
+#			if str.slice -1 == "л" or str.slice -1 == "м"
+#				c2 -= 0.5
+#
+#			for torus in obj.children.slice(0) when torus? and (torus.userData.torus1 == true)
+#				torus.position.x = -newText.textWidth/2 - c1
+#			for torus in obj.children.slice(0) when torus? and (torus.userData.torus2 == true)
+#				torus.position.x = newText.textWidth/2 - c2
+#
+#			for first in obj.children when first.userData.first == true
+#				first.position.x = -newText.geometry.textWidth/2 - c1
+#			for second in obj.children when second.userData.second == true
+#				second.position.x = newText.geometry.textWidth/2 - c2
 
 			changeMaterialNew obj, modelParams.material
 

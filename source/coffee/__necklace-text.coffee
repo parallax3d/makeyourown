@@ -39,19 +39,16 @@ NecklaceText = (options) ->
 
 		geom.merge textGeometry
 		geom.computeBoundingBox()
-		textWidth = geom.boundingBox.max.x - geom.boundingBox.min.x
+		textWidth = geom.boundingBox.max.x - geom.boundingBox.min.x - _oldInt
 
 	for lt, i in str.split ""
-		options.shift = textWidth
 		options.lt = lt
-		options.twoWords = lt + str[ i+1 ]
 		geometry = NeklaceSymbol options
 		intersectGeometry geometry
 
 	obj = new THREE.Mesh geom, silverMaterial.clone()
 
-	c = 0
-	obj.textWidth = textWidth - c
+	obj.textWidth = textWidth
 	obj.nowText = str
 
 	textRotation = (geometry, v3, c) ->
@@ -73,7 +70,7 @@ NecklaceText = (options) ->
 	return obj
 
 NeklaceSymbol = (options) ->
-	{font, lt, radius, size, index, twoWords, shift} = options
+	{font, lt, radius, size, index} = options
 	size = size or= 5.4
 	height = 0.001
 
@@ -82,9 +79,5 @@ NeklaceSymbol = (options) ->
 		size *= 2.0
 
 	textGeom = new THREE.TextGeometry lt, { font: font, size: size, height: height, bevelEnabled: true, bevelThickness: 0.5, bevelSize: 0.2, curveSegments: 10 }
-
-	#	textGeom.computeBoundingBox()
-	#	textGeom.applyMatrix new THREE.Matrix4().makeTranslation shift + c, 0, 0
-	#	textGeom.width = textGeom.boundingBox.max.x - textGeom.boundingBox.min.x - c * 1.3
 
 	return textGeom

@@ -59,7 +59,7 @@ config =
 		height: "220px"
 		price: ->
 			return 0
-		fonts: [ "calligraph", "Damion", "Harlow", "Molle", "Norican", "Script", "Segoe", "icomoon", "Yellowtail" ]
+		fonts: [ "calligraph", "Damion", "Harlow", "Molle", "Norican", "Script", "Segoe", "icomoon", "Yellowtail",	"nickainley",  "veryberry", "goodvibes"]
 	p5:
 		title: "Raw"
 		id: "p5"
@@ -85,4 +85,4 @@ config =
 		height: "280px"
 		price: ->
 			return 0
-		fonts: [ "calligraph", "Damion", "Harlow", "Molle", "Norican", "Script", "Segoe", "icomoon", "Yellowtail" ]
+		fonts: [ "calligraph", "Damion", "Harlow", "Molle", "Norican", "Script", "Segoe", "icomoon", "Yellowtail", "nickainley", "veryberry", "goodvibes"]

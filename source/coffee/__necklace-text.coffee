@@ -77,8 +77,7 @@ NeklaceSymbol = (options) ->
 	unless (/[a-zA-Zа-яА-Я0-9]/g).test(lt)
 		font = 'icomoon'
 		size *= 2.0
-	console.log font.toLowerCase()
-	textGeom = new THREE.TextGeometry lt, { font: font.toLowerCase(), size: size, height: height, curveSegments: 10,	bevelEnabled: true, bevelThickness: 0.5, bevelSize: 0.2,}
 
-#	bevelEnabled: true, bevelThickness: 0.5, bevelSize: 0.2,
+	textGeom = new THREE.TextGeometry lt, { font: font.toLowerCase(), size: size, height: height, curveSegments: 10,	bevelEnabled: true, bevelThickness: 0.3, bevelSize: 0.2,}
+
 	return textGeom

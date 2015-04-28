@@ -85,7 +85,13 @@ Necklace = (callback) ->
 
 		modelParams.changeText ""
 
-	modelParams.changeText = (str, isEmpty) ->
+	modelParams.changeFont = (currentStr, font) ->
+		font or= config.p4.defaultFont
+		config.p4.defaultFont = font
+
+		modelParams.changeText(currentStr);
+
+	modelParams.changeText = (str) ->
 
 		console.log 'xxx: ' + str
 
@@ -116,23 +122,6 @@ Necklace = (callback) ->
 			modelParams.changeDraw(newText, t1, t2)
 
 			obj.add newText
-
-#			c1 = 0
-#			c2 = 0
-#			if str[0] == "л" or str[0] == "м"
-#				c1 -= 1.0
-#			if str.slice -1 == "л" or str.slice -1 == "м"
-#				c2 -= 0.5
-#
-#			for torus in obj.children.slice(0) when torus? and (torus.userData.torus1 == true)
-#				torus.position.x = -newText.textWidth/2 - c1
-#			for torus in obj.children.slice(0) when torus? and (torus.userData.torus2 == true)
-#				torus.position.x = newText.textWidth/2 - c2
-#
-#			for first in obj.children when first.userData.first == true
-#				first.position.x = -newText.geometry.textWidth/2 - c1
-#			for second in obj.children when second.userData.second == true
-#				second.position.x = newText.geometry.textWidth/2 - c2
 
 			changeMaterialNew obj, modelParams.material
 

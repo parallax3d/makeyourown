@@ -49,15 +49,12 @@ RawRound = (callback) ->
 		changeMaterialNew combine, modelParams.material
 
 	modelParams.changeFont = (currentStr, font) ->
-		font or= config.p4.defaultFont
-		config.p4.defaultFont = font
+		font or= config.p6.defaultFont
+		config.p6.defaultFont = font
 
-		if font == "norican" and currentStr.match /[а-яА-ЯёЁ]/g
-			return false
+		modelParams.changeText(currentStr);
 
-		modelParams.changeText ""
-
-	modelParams.changeText = (str, isEmpty) ->
+	modelParams.changeText = (str) ->
 
 		for obj in scene.children when obj? and obj.userData.model == true
 			r = null

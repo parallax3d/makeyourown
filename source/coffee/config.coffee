@@ -86,3 +86,15 @@ config =
 		price: ->
 			return 0
 		fonts: [ "calligraph", "Damion", "Harlow", "Molle", "Norican", "Script", "Segoe", "icomoon", "Yellowtail", "nickainley", "veryberry", "goodvibes"]
+	p7:
+		title: "Cufflink"
+		id: "p7"
+		menuIcon: "css/icons/product8.png"
+		defaultFont: "calligraph"
+		model: Cufflink
+		maxTextLength: 15
+		size: 18
+		height: "280px"
+		price: ->
+			return 0
+		fonts: [ "calligraph", "Damion", "Harlow", "Molle", "Norican", "Script", "Segoe", "icomoon", "Yellowtail", "nickainley", "veryberry", "goodvibes"]

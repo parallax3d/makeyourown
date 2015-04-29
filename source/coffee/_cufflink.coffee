@@ -1,4 +1,4 @@
-RawRound = (callback) ->
+Cufflink = (callback) ->
 	do addRotateModelHandlers
 
 	[controls.minPolarAngle, controls.maxPolarAngle] = [0, Math.PI]

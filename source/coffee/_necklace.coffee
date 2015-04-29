@@ -5,12 +5,12 @@ Necklace = (callback) ->
 
 	controls.minPolarAngle = 1.25
 	controls.maxPolarAngle = 1.4
-	controls.maxDistance = 50
+	controls.maxDistance = 30
 #	controls.center = new THREE.Vector3
 #	controls.camera = new THREE.Vector3
 	camera.position.x = 0
 	camera.position.y = 0
-	camera.position.z = 40
+	camera.position.z = 0
 
 	combine = new THREE.Object3D
 	combine.userData.model = true
@@ -38,6 +38,8 @@ Necklace = (callback) ->
 			combine.add mesh
 			combine.add mesh2
 			combine.add text
+
+			combine.scale.x = combine.scale.y = combine.scale.z = 0.6
 
 			scene.add combine
 

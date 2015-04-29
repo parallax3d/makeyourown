@@ -28,6 +28,7 @@ loadedModels =
 	necklace: null
 	raw: null
 	rawround: null
+	cufflink: null
 
 $(document).ready ->
 

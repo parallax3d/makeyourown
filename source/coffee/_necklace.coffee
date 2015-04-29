@@ -39,7 +39,7 @@ Necklace = (callback) ->
 			combine.add mesh2
 			combine.add text
 
-			combine.scale.x = combine.scale.y = combine.scale.z = 0.6
+			combine.scale.x = combine.scale.y = combine.scale.z = 0.8
 
 			scene.add combine
 

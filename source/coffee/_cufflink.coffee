@@ -10,31 +10,31 @@ Cufflink = (callback) ->
 	combine.userData.model = true
 
 	if loadedModels.cufflink == null
-		text = NecklaceText str: "myo", font: config.p6.defaultFont, rotation: ( config.p6.size / 2 )
-		a = text.textWidth/(config.p6.size / 2)
+		text = NecklaceText str: "myo", font: config.p7.defaultFont
+		a = text.textWidth/(config.p7.size / 2)
 
 		text.userData.text = true
-		text.position.z = config.p6.size / 2
-#		text.position.x = 0.6
+		text.position.z = 3
+		text.position.x = -text.textWidth/2
+		text.position.y = -1
 		combine.add text
 
-#		ring = new THREE.Object3D
-#		geom = new THREE.TorusGeometry config.p6.size/2, 0.5, 20, 50, Math.PI
-#		mesh = new THREE.Mesh geom, silverMaterial.clone()
-#		mesh.rotation.z = Math.PI/2 - (2 * Math.PI)/180
-#		mesh.rotation.x = Math.PI/2
-#		mesh.position.y = 1.0
+		geom = new THREE.CylinderGeometry 0.4,0.4, 6, 50
+		mesh = new THREE.Mesh geom, silverMaterial.clone()
+		mesh.rotation.z = Math.PI/2
+		mesh.rotation.y = -Math.PI/2
+		#mesh.position.y = 1.0
 #		mesh.userData.ring1 = true
-#		combine.add mesh
+		combine.add mesh
+
+		geom2 = new THREE.CylinderGeometry 2.5,2.5,0.8 , 50
+		mesh2 = new THREE.Mesh geom2, silverMaterial.clone()
+		mesh2.rotation.z = Math.PI/2
+		mesh2.rotation.y = -Math.PI/2
+		mesh2.position.z = -3
+		combine.add mesh2
 #
-#		clone = mesh.clone()
-#		clone.userData.ring2 = true
-#		clone.rotation.x = Math.PI/2
-#		clone.rotation.z = -Math.PI/2 - a + (5 * Math.PI)/180
-#		clone.position.y = 1.0
-#		combine.add clone
-#
-#		combine.scale.x = combine.scale.y = combine.scale.z = config.p6.size * 0.05
+		combine.scale.x = combine.scale.y = combine.scale.z = config.p7.size * 0.05
 #		combine.position.y = 9
 
 
@@ -58,7 +58,7 @@ Cufflink = (callback) ->
 	modelParams.changeText = (str) ->
 
 		for obj in scene.children when obj? and obj.userData.model == true
-#			r = null
+			#r = null
 
 			#for ring in obj.children when ring.userData.ring2 == true
 			#	r = ring
@@ -66,11 +66,13 @@ Cufflink = (callback) ->
 
 				obj.remove text
 
-			newText = NecklaceText str: str, font: config.p4.defaultFont, rotation: (config.p6.size / 2)
+			newText = NecklaceText str: str, font: config.p7.defaultFont
 			newText.userData.text = true
-			newText.position.z = config.p6.size / 2
+			newText.position.z = 3
+			newText.position.x = -newText.textWidth/2
+			newText.position.y = -1
 
-			a = newText.textWidth/(config.p6.size / 2)
+			a = newText.textWidth/(config.p7.size / 2)
 #			r.rotation.z = -Math.PI/2 - a + (5 * Math.PI)/180
 
 			obj.add newText

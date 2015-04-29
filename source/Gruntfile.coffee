@@ -19,6 +19,7 @@ module.exports = (grunt) ->
 						"coffee/graphics.coffee"
 						"coffee/_rawround.coffee"
 						"coffee/_cufflink.coffee"
+						"coffee/_testing.coffee"
 						"coffee/main.coffee" ]
 					"../public/js/config.js": [ "coffee/config.coffee" ]
 
@@ -103,6 +104,7 @@ module.exports = (grunt) ->
 					collapseWhitespace: true
 				files:
 					'../public/index.html': 'index.html'
+					'../public/panels/p0.html': 'panels/p0.html'
 					'../public/panels/p1.html': 'panels/p1.html'
 					'../public/panels/p2.html': 'panels/p2.html'
 					'../public/panels/p3.html': 'panels/p3.html'

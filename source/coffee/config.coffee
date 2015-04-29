@@ -4,13 +4,11 @@ config =
 	p0: # Font testing
 		title: "Тестировщик шрифтов"
 		id: "p0"
-		size: 18
-		sizeDiamond: 11
 		menuIcon: "css/icons/product1.png"
 		model: Testing
 		defaultFont: ""
 		fonts: []
-		height: "420px"
+		height: "250px"
 		price: (obj) ->
 			return 5000
 	p1:

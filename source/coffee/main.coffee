@@ -21,6 +21,7 @@ modelParams =
 		renderf()
 
 loadedModels =
+	testing: null
 	diamondRing: null
 	mring: null
 	messager: null

@@ -6,13 +6,11 @@ config = {
   p0: {
     title: "Тестировщик шрифтов",
     id: "p0",
-    size: 18,
-    sizeDiamond: 11,
     menuIcon: "css/icons/product1.png",
     model: Testing,
     defaultFont: "",
     fonts: [],
-    height: "420px",
+    height: "250px",
     price: function(obj) {
       return 5000;
     }

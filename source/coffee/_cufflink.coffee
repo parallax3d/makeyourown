@@ -16,10 +16,10 @@ Cufflink = (callback) ->
 		text.userData.text = true
 		text.position.z = 3
 		text.position.x = -text.textWidth/2
-		text.position.y = -1
+		text.position.y = -2
 		combine.add text
 
-		geom = new THREE.CylinderGeometry 0.4,0.4, 6, 50
+		geom = new THREE.CylinderGeometry 0.35,0.35, 6, 50
 		mesh = new THREE.Mesh geom, silverMaterial.clone()
 		mesh.rotation.z = Math.PI/2
 		mesh.rotation.y = -Math.PI/2
@@ -27,7 +27,7 @@ Cufflink = (callback) ->
 #		mesh.userData.ring1 = true
 		combine.add mesh
 
-		geom2 = new THREE.CylinderGeometry 2.5,2.5,0.8 , 50
+		geom2 = new THREE.CylinderGeometry 2.5,2.5,0.7 , 50
 		mesh2 = new THREE.Mesh geom2, silverMaterial.clone()
 		mesh2.rotation.z = Math.PI/2
 		mesh2.rotation.y = -Math.PI/2
@@ -66,11 +66,11 @@ Cufflink = (callback) ->
 
 				obj.remove text
 
-			newText = NecklaceText str: str, font: config.p7.defaultFont
+			newText = NecklaceText str: str, font: config.p7.defaultFont, diagonal: true
 			newText.userData.text = true
 			newText.position.z = 3
 			newText.position.x = -newText.textWidth/2
-			newText.position.y = -1
+			newText.position.y = -2
 
 			a = newText.textWidth/(config.p7.size / 2)
 #			r.rotation.z = -Math.PI/2 - a + (5 * Math.PI)/180

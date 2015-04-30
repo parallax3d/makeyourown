@@ -13,8 +13,8 @@ NecklaceText = (options) ->
 	raycaster = new THREE.Raycaster()
 
 	_oldInt = 0
-	z = -0.5
-	intersectGeometry = (textGeometry) ->
+	y = 0
+	intersectGeometry = (textGeometry, index) ->
 		geom.computeBoundingBox()
 		textGeometry.computeBoundingBox()
 
@@ -30,13 +30,24 @@ NecklaceText = (options) ->
 		# left to right
 		tObj2 = new THREE.Mesh textGeometry
 
-#		if(diagonal == true)
-#			y = y + 5
+		z = 0
+		if(str.length == 1)
+			y = 0
+		else if(diagonal)
+			if(index == 0)
+				y = 0.5
+			else
+				y = -0.5
+				z =	0.5
 
-		textGeometry.applyMatrix new THREE.Matrix4().makeTranslation obj1x - _oldInt, 0, z
+		mergeDistance = 1
+		if(diagonal)
+			mergeDistance = 0.8
+
+		textGeometry.applyMatrix new THREE.Matrix4().makeTranslation (obj1x - _oldInt) * mergeDistance, y, z
 
 		#  right to left
-		origin1 = new THREE.Vector3( textGeometry.boundingBox.max.x, rightBorder, 0)
+		origin1 = new THREE.Vector3( textGeometry.boundingBox.max.x, rightBorder + y, z)
 		direction1=  new THREE.Vector3(-1,0,0)
 		raycaster.set( origin1, direction1 )
 		intersects1 = raycaster.intersectObject( tObj2 )
@@ -49,7 +60,7 @@ NecklaceText = (options) ->
 	for lt, i in str.split ""
 		options.lt = lt
 		geometry = NeklaceSymbol options
-		intersectGeometry geometry
+		intersectGeometry geometry, i
 
 	obj = new THREE.Mesh geom, silverMaterial.clone()
 

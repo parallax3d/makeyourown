@@ -69,7 +69,7 @@ RawRound = (callback) ->
 			newText = NecklaceText str: str, font: config.p4.defaultFont, rotation: (config.p6.size / 2)
 			newText.userData.text = true
 			newText.position.z = config.p6.size / 2
-
+			newText.position.x = -0.4
 			a = newText.textWidth/(config.p6.size / 2)
 			r.rotation.z = -Math.PI/2 - a + (5 * Math.PI)/180
 

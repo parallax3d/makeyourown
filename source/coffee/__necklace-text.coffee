@@ -1,7 +1,8 @@
 NecklaceText = (options) ->
-	{font, str, radius, size, rotation} = options
+	{font, str, radius, size, rotation, diagonal} = options
 
 	size = size or= 5.4
+	diagonal = diagonal or=false
 	rotation = rotation or=0
 	height = 0.001
 
@@ -12,6 +13,7 @@ NecklaceText = (options) ->
 	raycaster = new THREE.Raycaster()
 
 	_oldInt = 0
+	z = -0.5
 	intersectGeometry = (textGeometry) ->
 		geom.computeBoundingBox()
 		textGeometry.computeBoundingBox()
@@ -28,7 +30,10 @@ NecklaceText = (options) ->
 		# left to right
 		tObj2 = new THREE.Mesh textGeometry
 
-		textGeometry.applyMatrix new THREE.Matrix4().makeTranslation obj1x - _oldInt, 0, 0
+#		if(diagonal == true)
+#			y = y + 5
+
+		textGeometry.applyMatrix new THREE.Matrix4().makeTranslation obj1x - _oldInt, 0, z
 
 		#  right to left
 		origin1 = new THREE.Vector3( textGeometry.boundingBox.max.x, rightBorder, 0)
@@ -74,7 +79,7 @@ NeklaceSymbol = (options) ->
 	size = size or= 5.4
 	height = 0.001
 
-	unless (/[a-zA-Zа-яА-Я0-9]/g).test(lt)
+	unless (/[a-zmaxTextLengthA-Zа-яА-Я0-9]/g).test(lt)
 		font = 'icomoon'
 		size *= 2.0
 

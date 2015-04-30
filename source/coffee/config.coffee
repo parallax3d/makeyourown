@@ -90,7 +90,7 @@ config =
 		menuIcon: "css/icons/product7.png"
 		defaultFont: "calligraph"
 		model: RawRound
-		maxTextLength: 15
+		maxTextLength: 12
 		size: 18
 		height: "280px"
 		price: ->
@@ -102,7 +102,7 @@ config =
 		menuIcon: "css/icons/product8.png"
 		defaultFont: "calligraph"
 		model: Cufflink
-		maxTextLength: 15
+		maxTextLength: 2
 		size: 18
 		height: "280px"
 		price: ->

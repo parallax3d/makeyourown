@@ -94,7 +94,7 @@
 
 <script>
 function textMaxLength() {
-	var left_char_number = Math.floor(config.p4.maxTextLength);
+	var left_char_number = Math.floor(config.p6.maxTextLength);
 
 	var current_text = $('#text-input').val();
 
@@ -105,8 +105,8 @@ function textMaxLength() {
 		//current_text = current_text.replace(/[^a-zA-Zа-яА-ЯёЁ\-]/g, '')
 	// }
 
-	if(current_text.length > config.p4.maxTextLength) {
-		$('#text-input').val(''+current_text.slice(0, config.p4.maxTextLength));
+	if(current_text.length > config.p6.maxTextLength) {
+		$('#text-input').val(''+current_text.slice(0, config.p6.maxTextLength));
 		return;
 	}
 

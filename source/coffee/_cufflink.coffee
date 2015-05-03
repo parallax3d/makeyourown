@@ -19,7 +19,7 @@ Cufflink = (callback) ->
 		text.position.y = -2
 		combine.add text
 
-		geom = new THREE.CylinderGeometry 0.35,0.35, 6, 50
+		geom = new THREE.CylinderGeometry 0.35, 0.35, 6, 50
 		mesh = new THREE.Mesh geom, silverMaterial.clone()
 		mesh.rotation.z = Math.PI/2
 		mesh.rotation.y = -Math.PI/2
@@ -27,7 +27,7 @@ Cufflink = (callback) ->
 #		mesh.userData.ring1 = true
 		combine.add mesh
 
-		geom2 = new THREE.CylinderGeometry 2.5,2.5,0.7 , 50
+		geom2 = new THREE.CylinderGeometry 2.5, 2.5, 0.5, 50
 		mesh2 = new THREE.Mesh geom2, silverMaterial.clone()
 		mesh2.rotation.z = Math.PI/2
 		mesh2.rotation.y = -Math.PI/2
@@ -37,9 +37,7 @@ Cufflink = (callback) ->
 		combine.scale.x = combine.scale.y = combine.scale.z = config.p7.size * 0.05
 #		combine.position.y = 9
 
-
 		scene.add combine
-
 
 		loadedModels.cufflink = combine.clone()
 		$("#ajax-loading").hide()

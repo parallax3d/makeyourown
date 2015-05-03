@@ -72,7 +72,7 @@ NecklaceText = (options) ->
 
 		geom.merge textGeometry
 		geom.computeBoundingBox()
-		textWidth += userData.width
+		textWidth += userData.width + mergeDistance
 
 	# Text transformation
 	textRotation = (geometry, v3, c) ->

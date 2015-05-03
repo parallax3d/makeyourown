@@ -57,25 +57,19 @@ Necklace = (callback) ->
 
 		text.position.x = 0
 
-		#  left to right
-		origin1 = new THREE.Vector3( 0, 0, 0)
-		direction1=  new THREE.Vector3(1,0,0)
-		raycaster.set( origin1, direction1 )
-		intersects1 = raycaster.intersectObject( text )
-
-		#  right to left
-		origin1 = new THREE.Vector3( text.textWidth, 0, 0)
-		direction1=  new THREE.Vector3(-1,0,0)
-		raycaster.set( origin1, direction1 )
-		intersects2 = raycaster.intersectObject( text )
-
 		torus1.position.y = 1.3
-		torus1.position.x = -text.textWidth/2 - intersects1[0].distance + 0.6
+		torus1.position.x = -text.textWidth/2
 
 		torus2.position.y = 1.3
-		torus2.position.x = text.textWidth/2 + intersects2[0].distance - 0.6
+		torus2.position.x = text.textWidth/2 -  text.userData.symbols[text.userData.symbols.length - 1].rightToLeft + 0.6
 
 		text.position.x = -text.textWidth/2
+
+#		for element in text.userData.symbols
+#			object = new THREE.BoundingBoxHelper element.object, 0xff0000
+#			object.update()
+#			object.position.x = text.position.x + element.translateX + element.boxWidth/2
+#			combine.add object
 
 	modelParams.changeFont = (currentStr, font) ->
 		font or= config.p4.defaultFont

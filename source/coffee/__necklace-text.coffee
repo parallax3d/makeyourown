@@ -6,15 +6,25 @@ NecklaceText = (options) ->
 	rotation = rotation or=0
 	height = 0.001
 
+	# create a main obj
 	geom = new THREE.Geometry
+	obj = new THREE.Mesh geom, silverMaterial.clone()
+	# Store all information regaring symbols and its intersection
+	obj.userData.symbols = []
 
 	textWidth = 0
 
 	raycaster = new THREE.Raycaster()
+	intersect = (obj, x, y, z, direction) ->
+		origin = new THREE.Vector3( x, y, z)
+		raycaster.set( origin, direction )
+		intersects = raycaster.intersectObject( obj )
+		return if intersects[0] then intersects[0].distance else 0
 
-	_oldInt = 0
-	y = 0
 	intersectGeometry = (textGeometry, index) ->
+
+		userData = obj.userData.symbols[index]
+
 		geom.computeBoundingBox()
 		textGeometry.computeBoundingBox()
 
@@ -22,15 +32,11 @@ NecklaceText = (options) ->
 		if(geom.vertices.length == 0)
 			obj1x = 0
 
-		height = textGeometry.boundingBox.max.y - textGeometry.boundingBox.min.y
-
 		leftBorder = 1.0
 		rightBorder = 0.5
 
-		# left to right
-		tObj2 = new THREE.Mesh textGeometry
-
 		z = 0
+		y = 0
 		if(str.length == 1)
 			y = 0
 		else if(diagonal)
@@ -40,33 +46,38 @@ NecklaceText = (options) ->
 				y = -0.5
 				z =	0.5
 
-		mergeDistance = 1
+		mergeDistance = 0
 		if(diagonal)
-			mergeDistance = 0.8
+			mergeDistance = -2
 
-		textGeometry.applyMatrix new THREE.Matrix4().makeTranslation (obj1x - _oldInt) * mergeDistance, y, z
+		userData.object = new THREE.Mesh textGeometry.clone()
+
+		userData.maxX = textGeometry.boundingBox.max.x
+		userData.minX = textGeometry.boundingBox.min.x
+		userData.boxWidth = userData.maxX - userData.minX
 
 		#  right to left
-		origin1 = new THREE.Vector3( textGeometry.boundingBox.max.x, rightBorder + y, z)
-		direction1=  new THREE.Vector3(-1,0,0)
-		raycaster.set( origin1, direction1 )
-		intersects1 = raycaster.intersectObject( tObj2 )
-		_oldInt = intersects1[0].distance
+		userData.leftToRight = intersect(userData.object, userData.minX, leftBorder, 0, new THREE.Vector3(1,0,0))
+		#  right to left
+		userData.rightToLeft = intersect(userData.object, userData.maxX, rightBorder, 0, new THREE.Vector3(-1,0,0))
+		userData.preTranslateX = 0 - userData.minX - userData.leftToRight
+
+		userData.width = userData.boxWidth - userData.leftToRight - userData.rightToLeft
+
+		if(index == 0)
+			userData.translateX = userData.preTranslateX + mergeDistance
+		else
+			userData.translateX = obj1x - userData.preTranslateX - obj.userData.symbols[index - 1].rightToLeft + mergeDistance
+
+		userData.translateY = y
+		userData.translateZ = z
+		textGeometry.applyMatrix new THREE.Matrix4().makeTranslation userData.translateX, userData.translateY, userData.translateZ
 
 		geom.merge textGeometry
 		geom.computeBoundingBox()
-		textWidth = geom.boundingBox.max.x - geom.boundingBox.min.x - _oldInt
+		textWidth = geom.boundingBox.max.x - geom.boundingBox.min.x
 
-	for lt, i in str.split ""
-		options.lt = lt
-		geometry = NeklaceSymbol options
-		intersectGeometry geometry, i
-
-	obj = new THREE.Mesh geom, silverMaterial.clone()
-
-	obj.textWidth = textWidth
-	obj.nowText = str
-
+	# Text transformation
 	textRotation = (geometry, v3, c) ->
 		vertList = geometry.vertices
 		c = Math.abs 0 - v3.z
@@ -80,13 +91,29 @@ NecklaceText = (options) ->
 			vert.x = h + v3.x + e.x * vert.z
 			vert.z = g + v3.z + e.y * vert.z
 
+	# Loop for each word
+	for lt, i in str.split ""
+		obj.userData.symbols[i] =
+			index: i
+			symbol: lt
+			rightToLeft: 0
+			leftToRight: 0
+
+		options.lt = lt
+		geometry = NeklaceSymbol options
+		intersectGeometry geometry, i
+
 	if rotation != 0
 		textRotation geom, new THREE.Vector3(0, 0, -1 * rotation)
 
+	obj.textWidth = textWidth
+	obj.nowText = str
+
+	console.log obj.userData
 	return obj
 
 NeklaceSymbol = (options) ->
-	{font, lt, radius, size, index} = options
+	{font, lt, size} = options
 	size = size or= 5.4
 	height = 0.001
 

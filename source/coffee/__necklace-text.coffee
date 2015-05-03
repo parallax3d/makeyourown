@@ -72,7 +72,7 @@ NecklaceText = (options) ->
 
 		geom.merge textGeometry
 		geom.computeBoundingBox()
-		textWidth = geom.boundingBox.max.x - geom.boundingBox.min.x
+		textWidth += userData.width
 
 	# Text transformation
 	textRotation = (geometry, v3, c) ->
@@ -106,7 +106,6 @@ NecklaceText = (options) ->
 	obj.textWidth = textWidth
 	obj.nowText = str
 
-	console.log obj.userData
 	return obj
 
 NeklaceSymbol = (options) ->

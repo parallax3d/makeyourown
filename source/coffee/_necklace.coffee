@@ -57,11 +57,11 @@ Necklace = (callback) ->
 
 		text.position.x = 0
 
-		torus1.position.y = 1.3
-		torus1.position.x = -text.textWidth/2
+		torus1.position.y = 1.0
+		torus1.position.x = -text.textWidth/2 - 0.4
 
-		torus2.position.y = 1.3
-		torus2.position.x = text.textWidth/2 -  text.userData.symbols[text.userData.symbols.length - 1].rightToLeft + 0.6
+		torus2.position.y = 1.0
+		torus2.position.x = text.textWidth/2 + 0.4
 
 		text.position.x = -text.textWidth/2
 

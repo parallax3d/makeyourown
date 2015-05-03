@@ -19,7 +19,7 @@ RawRound = (callback) ->
 		combine.add text
 
 		ring = new THREE.Object3D
-		geom = new THREE.TorusGeometry config.p6.size/2, 0.5, 20, 50, Math.PI
+		geom = new THREE.TorusGeometry config.p6.size/2, 0.3, 20, 50, Math.PI
 		mesh = new THREE.Mesh geom, silverMaterial.clone()
 		mesh.rotation.z = Math.PI/2 - (2 * Math.PI)/180
 		mesh.rotation.x = Math.PI/2
@@ -30,7 +30,7 @@ RawRound = (callback) ->
 		clone = mesh.clone()
 		clone.userData.ring2 = true
 		clone.rotation.x = Math.PI/2
-		clone.rotation.z = -Math.PI/2 - a + (5 * Math.PI)/180
+		clone.rotation.z = -Math.PI/2 - a + (2 * Math.PI)/180
 		clone.position.y = 1.0
 		combine.add clone
 
@@ -66,12 +66,12 @@ RawRound = (callback) ->
 
 				obj.remove text
 
-			newText = NecklaceText str: str, font: config.p4.defaultFont, rotation: (config.p6.size / 2)
+			newText = NecklaceText str: str, font: config.p6.defaultFont, rotation: (config.p6.size / 2)
 			newText.userData.text = true
 			newText.position.z = config.p6.size / 2
 			newText.position.x = -0.4
 			a = newText.textWidth/(config.p6.size / 2)
-			r.rotation.z = -Math.PI/2 - a + (5 * Math.PI)/180
+			r.rotation.z = -Math.PI/2 - a + (2 * Math.PI)/180
 
 			obj.add newText
 

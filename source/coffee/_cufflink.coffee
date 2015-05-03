@@ -50,8 +50,8 @@ Cufflink = (callback) ->
 		changeMaterialNew combine, modelParams.material
 
 	modelParams.changeFont = (currentStr, font) ->
-		font or= config.p6.defaultFont
-		config.p6.defaultFont = font
+		font or= config.p7.defaultFont
+		config.p7.defaultFont = font
 
 		modelParams.changeText(currentStr);
 

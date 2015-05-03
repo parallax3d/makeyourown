@@ -28,10 +28,6 @@ NecklaceText = (options) ->
 		geom.computeBoundingBox()
 		textGeometry.computeBoundingBox()
 
-		obj1x = geom.boundingBox.max.x
-		if(geom.vertices.length == 0)
-			obj1x = 0
-
 		leftBorder = 1.0
 		rightBorder = 0.5
 
@@ -61,13 +57,14 @@ NecklaceText = (options) ->
 		#  right to left
 		userData.rightToLeft = intersect(userData.object, userData.maxX, rightBorder, 0, new THREE.Vector3(-1,0,0))
 		userData.preTranslateX = 0 - userData.minX - userData.leftToRight
+		userData.postTranslateX = userData.rightToLeft
 
 		userData.width = userData.boxWidth - userData.leftToRight - userData.rightToLeft
 
 		if(index == 0)
 			userData.translateX = userData.preTranslateX + mergeDistance
 		else
-			userData.translateX = obj1x - userData.preTranslateX - obj.userData.symbols[index - 1].rightToLeft + mergeDistance
+			userData.translateX = geom.boundingBox.max.x + userData.preTranslateX - obj.userData.symbols[index - 1].postTranslateX + mergeDistance
 
 		userData.translateY = y
 		userData.translateZ = z

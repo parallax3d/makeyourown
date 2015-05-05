@@ -223,7 +223,7 @@ exportSTL = ->
 
 initPanel = ->
 
-	$("a.plus").click ->
+	$("#size a.plus").click ->
 		v = parseFloat $("#p-size-display").val()
 		if v < 25
 			$("#p-size-display").val "#{(v + 0.1).toFixed(2).toString()} мм"
@@ -231,7 +231,7 @@ initPanel = ->
 			modelParams.changeSize v + 0.1
 			config.p1.size = v + 1
 
-	$("a.minus").click ->
+	$("#size a.minus").click ->
 		v = parseFloat $("#p-size-display").val()
 		if v > 10
 			$("#p-size-display").val "#{(v - 0.1).toFixed(2).toString()} мм"

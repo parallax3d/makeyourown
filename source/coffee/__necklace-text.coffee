@@ -117,6 +117,8 @@ NeklaceSymbol = (options) ->
 		font = 'icomoon'
 		size *= 2.0
 
-	textGeom = new THREE.TextGeometry lt, { font: font.toLowerCase(), size: size, height: height, curveSegments: 10,	bevelEnabled: true, bevelThickness: 0.3, bevelSize: 0.2,}
+	bevelThickness = config.p0.bevelThickness/100 or 30/100
+	bevelSize = config.p0.bevelSize/100 or 20/100
+	textGeom = new THREE.TextGeometry lt, { font: font.toLowerCase(), size: size, height: height, curveSegments: 10,	bevelEnabled: true, bevelThickness: bevelThickness, bevelSize: bevelSize}
 
 	return textGeom

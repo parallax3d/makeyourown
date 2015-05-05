@@ -6,9 +6,11 @@ config =
 		id: "p0"
 		menuIcon: "css/icons/product1.png"
 		model: Testing
-		defaultFont: ""
+		defaultFont: "calligraph"
 		fonts: []
-		height: "250px"
+		height: "300px"
+		bevelSize: 20
+		bevelThickness: 30
 		price: (obj) ->
 			return 5000
 	p1:

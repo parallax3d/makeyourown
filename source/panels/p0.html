@@ -14,6 +14,29 @@
 </div>
 
 <div style="clear:both"></div>
+
+<div>
+	<div style="margin-top:10px" id="bevel-size">
+		<span style="float:left;margin-top: 5px;width:80px;margin-right:10px;">Bevel size:</span>
+		<a href="javascript:void(0);" class="minus"></a>
+		<input type="text" id="p-bevel-size-display" value="20">
+		<a href="javascript:void(0);" class="plus"></a>
+
+</div>
+
+<div style="clear:both"></div>
+
+<div>
+	<div style="margin-top:10px" id="bevel-thicknes">
+		<span style="float:left;margin-top: 5px;width:80px;margin-right:10px;">Bevel thickness:</span>
+		<a href="javascript:void(0);" class="minus"></a>
+		<input type="text" id="p-bevel-thickness-display" value="30">
+		<a href="javascript:void(0);" class="plus"></a>
+
+</div>
+
+<div style="clear:both"></div>
+
 <div style="margin-top: 20px;">
 	<div style="float:left">Материал:</div>
 	<div title="Золото" class="gold"></div>
@@ -26,7 +49,50 @@
 <input type="hidden" name="p-price" value="">
 <input type="hidden" name="p-selected-font" value="">
 <input type="hidden" name="p-panel-text" value="MYO"></div>
+<input type="hidden" name="p-bevel-size" value="">
+<input type="hidden" name="p-bevel-thickness" value="">
 <script>
+
+	$("#bevel-size a.plus").on("click", function() {
+		var v = parseFloat($("#p-bevel-size-display").val());
+
+		$("#p-bevel-size-display").val(v + 1)
+		$("input[name=p-bevel-size]").val(v + 1);
+		modelParams.changeFont()
+		textMaxLength()
+		config.p0.bevelSize = v + 1
+	});
+
+	$("#bevel-size a.minus").on("click", function() {
+		var v = parseFloat($("#p-bevel-size-display").val());
+
+		$("#p-bevel-size-display").val(v - 1)
+		$("input[name=p-bevel-size]").val(v - 1);
+		modelParams.changeFont()
+		textMaxLength()
+		config.p0.bevelSize = v - 1
+	});
+
+	$("#bevel-thicknes a.plus").on("click", function() {
+		v = parseFloat($("#p-bevel-thickness-display").val());
+
+		$("#p-bevel-thickness-display").val(v + 1)
+		$("input[name=p-bevel-thickness]").val(v + 1);
+		modelParams.changeFont()
+		textMaxLength()
+		config.p0.bevelThickness = v + 1
+	});
+
+	$("#bevel-thicknes a.minus").on("click", function() {
+		v = parseFloat($("#p-bevel-thickness-display").val());
+
+		$("#p-bevel-thickness-display").val(v - 1)
+		$("input[name=p-bevel-thickness]").val(v - 1);
+		modelParams.changeFont()
+		textMaxLength()
+		config.p0.bevelThickness = v - 1
+	});
+
 	function textMaxLength() {
 		var left_char_number = Math.floor(config.p4.maxTextLength);
 

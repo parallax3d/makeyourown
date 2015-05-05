@@ -313,7 +313,7 @@ a.minus {
 	height: 39px;
 	margin-top: 0;
 }
-#p-size-display {
+#p-bevel-size-display, #p-bevel-thickness-display, #p-size-display {
 	float: left;
 	width: 86px;
 	height: 35px;

@@ -8,7 +8,7 @@ Testing = (callback) ->
 	controls.maxDistance = 50
 	camera.position.x = 0
 	camera.position.y = 0
-	camera.position.z = 40
+	camera.position.z = 0
 
 	combine = new THREE.Object3D
 	combine.userData.model = true
@@ -34,16 +34,10 @@ Testing = (callback) ->
 		changeMaterialNew combine, modelParams.material
 
 	modelParams.changeFont = (currentStr, font) ->
-		font or= config.p4.defaultFont
-		config.p4.defaultFont = font
+		font or= config.p0.defaultFont
+		config.p0.defaultFont = font
 
 		modelParams.changeText ""
-
-	modelParams.changeFont = (currentStr, font) ->
-		font or= config.p4.defaultFont
-		config.p4.defaultFont = font
-
-		modelParams.changeText(currentStr);
 
 	modelParams.changeText = (str) ->
 

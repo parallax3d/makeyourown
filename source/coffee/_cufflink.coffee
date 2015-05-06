@@ -3,45 +3,53 @@ Cufflink = (callback) ->
 
 	[controls.minPolarAngle, controls.maxPolarAngle] = [0, Math.PI]
 	controls.maxDistance = 38
-	camera.position.z = 100
+	camera.position.z = 120
 	camera.position.y = 80
 
 	combine = new THREE.Object3D
 	combine.userData.model = true
 
 	if loadedModels.cufflink == null
-		text = NecklaceText str: "RR", font: config.p7.defaultFont, diagonal: true
-		a = text.textWidth/(config.p7.size / 2)
+		loader.load "obj/ones.obj", (object) ->
+			object.traverse (child) ->
+				if child instanceof THREE.Mesh
+					child.material = silverMaterial.clone()
 
-		text.userData.text = true
-		text.position.z = 3
-		text.position.x = -text.textWidth/2
-		text.position.y = -2
-		combine.add text
+			combine.add object
 
-		geom = new THREE.CylinderGeometry 0.35, 0.35, 6, 50
-		mesh = new THREE.Mesh geom, silverMaterial.clone()
-		mesh.rotation.z = Math.PI/2
-		mesh.rotation.y = -Math.PI/2
-		#mesh.position.y = 1.0
-#		mesh.userData.ring1 = true
-		combine.add mesh
+			text = NecklaceText str: "RR", font: config.p7.defaultFont, diagonal: true
+			a = text.textWidth/(config.p7.size / 2)
 
-		geom2 = new THREE.CylinderGeometry 2.5, 2.5, 0.5, 50
-		mesh2 = new THREE.Mesh geom2, silverMaterial.clone()
-		mesh2.rotation.z = Math.PI/2
-		mesh2.rotation.y = -Math.PI/2
-		mesh2.position.z = -3
-		combine.add mesh2
+			text.userData.text = true
+			text.position.z = 1
+			text.position.x = -text.textWidth/2
+			text.position.y = -3
+			text.scale.x = text.scale.y = text.scale.z = 1.5
+			combine.add text
+
+#			geom = new THREE.CylinderGeometry 0.35, 0.35, 6, 50
+#			mesh = new THREE.Mesh geom, silverMaterial.clone()
+#			mesh.rotation.z = Math.PI/2
+#			mesh.rotation.y = -Math.PI/2
+#			#mesh.position.y = 1.0
+#	#		mesh.userData.ring1 = true
+#			combine.add mesh
 #
-		combine.scale.x = combine.scale.y = combine.scale.z = config.p7.size * 0.05
-#		combine.position.y = 9
+#			geom2 = new THREE.CylinderGeometry 2.5, 2.5, 0.5, 50
+#			mesh2 = new THREE.Mesh geom2, silverMaterial.clone()
+#			mesh2.rotation.z = Math.PI/2
+#			mesh2.rotation.y = -Math.PI/2
+#			mesh2.position.z = -3
+#			combine.add mesh2
+	#
+			combine.scale.x = combine.scale.y = combine.scale.z = config.p7.size * 0.05
+	#		combine.position.y = 9
 
-		scene.add combine
+			scene.add combine
 
-		loadedModels.cufflink = combine.clone()
-		$("#ajax-loading").hide()
-		renderf()
+			loadedModels.cufflink = combine.clone()
+			$("#ajax-loading").hide()
+			renderf()
 	else
 		combine = loadedModels.cufflink
 		scene.add combine
@@ -66,10 +74,10 @@ Cufflink = (callback) ->
 
 			newText = NecklaceText str: str, font: config.p7.defaultFont, diagonal: true
 			newText.userData.text = true
-			newText.position.z = 3
+			newText.position.z = 1
 			newText.position.x = -newText.textWidth/2
-			newText.position.y = -2
-
+			newText.position.y = -3
+			newText.scale.x = newText.scale.y = newText.scale.z = 1.5
 			a = newText.textWidth/(config.p7.size / 2)
 #			r.rotation.z = -Math.PI/2 - a + (5 * Math.PI)/180
 
@@ -82,7 +90,7 @@ Cufflink = (callback) ->
 		for obj in scene.children when obj? and obj.userData.model == true
 			obj.scale.x = obj.scale.y = obj.scale.z = v*0.05
 
-		renderf()
+			renderf()
 
 	modelParams.functionsTable["p-selected-font"] = modelParams.changeFont
 	modelParams.functionsTable["p-panel-text"] = modelParams.changeText

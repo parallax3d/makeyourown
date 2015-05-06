@@ -102,11 +102,11 @@ config =
 		title: "Cufflink"
 		id: "p7"
 		menuIcon: "css/icons/product8.png"
-		defaultFont: "calligraph"
+		defaultFont: "ScriptMTBold"
 		model: Cufflink
 		maxTextLength: 2
 		size: 18
 		height: "280px"
 		price: ->
 			return 0
-		fonts: [ "calligraph", "Damion", "Harlow", "Molle", "Norican", "Script", "Segoe", "icomoon", "Yellowtail", "nickainley", "veryberry", "goodvibes"]
+		fonts: [  "Damion", "Harlow", "Molle",  "Script", "Segoe", "icomoon", "Yellowtail", "veryberry", "ScriptMTBold"]

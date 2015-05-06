@@ -10,7 +10,7 @@ Cufflink = (callback) ->
 	combine.userData.model = true
 
 	if loadedModels.cufflink == null
-		text = NecklaceText str: "DR", font: config.p7.defaultFont, diagonal: true
+		text = NecklaceText str: "RR", font: config.p7.defaultFont, diagonal: true
 		a = text.textWidth/(config.p7.size / 2)
 
 		text.userData.text = true

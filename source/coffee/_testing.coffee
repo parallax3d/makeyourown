@@ -37,7 +37,7 @@ Testing = (callback) ->
 		font or= config.p0.defaultFont
 		config.p0.defaultFont = font
 
-		modelParams.changeText ""
+		modelParams.changeText currentStr
 
 	modelParams.changeText = (str) ->
 
@@ -53,7 +53,7 @@ Testing = (callback) ->
 			for text in obj.children when text? and text.userData.text == true
 				obj.remove text
 
-			newText = NecklaceText str: str, font: config.p4.defaultFont
+			newText = NecklaceText str: str, font: config.p0.defaultFont
 			newText.userData.text = true
 
 			newText.position.x = -newText.textWidth/2

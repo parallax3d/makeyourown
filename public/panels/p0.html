@@ -3,8 +3,7 @@
 
 		$("#p-bevel-size-display").val(v + 1)
 		$("input[name=p-bevel-size]").val(v + 1);
-		modelParams.changeFont()
-		textMaxLength()
+		modelParams.changeFont($('#text-input').val())
 		config.p0.bevelSize = v + 1
 	});
 
@@ -13,8 +12,7 @@
 
 		$("#p-bevel-size-display").val(v - 1)
 		$("input[name=p-bevel-size]").val(v - 1);
-		modelParams.changeFont()
-		textMaxLength()
+		modelParams.changeFont($('#text-input').val())
 		config.p0.bevelSize = v - 1
 	});
 
@@ -23,8 +21,7 @@
 
 		$("#p-bevel-thickness-display").val(v + 1)
 		$("input[name=p-bevel-thickness]").val(v + 1);
-		modelParams.changeFont()
-		textMaxLength()
+		modelParams.changeFont($('#text-input').val())
 		config.p0.bevelThickness = v + 1
 	});
 
@@ -33,8 +30,7 @@
 
 		$("#p-bevel-thickness-display").val(v - 1)
 		$("input[name=p-bevel-thickness]").val(v - 1);
-		modelParams.changeFont()
-		textMaxLength()
+		modelParams.changeFont($('#text-input').val())
 		config.p0.bevelThickness = v - 1
 	});
 

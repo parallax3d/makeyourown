@@ -3,7 +3,7 @@ Cufflink = (callback) ->
 
 	[controls.minPolarAngle, controls.maxPolarAngle] = [0, Math.PI]
 	controls.maxDistance = 38
-	camera.position.z = 120
+	camera.position.z = 200
 	camera.position.y = 80
 
 	combine = new THREE.Object3D
@@ -23,8 +23,8 @@ Cufflink = (callback) ->
 			text.userData.text = true
 			text.position.z = 1
 			text.position.x = -text.textWidth/2
-			text.position.y = -3
-			text.scale.x = text.scale.y = text.scale.z = 1.5
+			text.position.y = -5
+			text.scale.x = text.scale.y = text.scale.z = 2.5
 			combine.add text
 
 #			geom = new THREE.CylinderGeometry 0.35, 0.35, 6, 50
@@ -76,8 +76,8 @@ Cufflink = (callback) ->
 			newText.userData.text = true
 			newText.position.z = 1
 			newText.position.x = -newText.textWidth/2
-			newText.position.y = -3
-			newText.scale.x = newText.scale.y = newText.scale.z = 1.5
+			newText.position.y = -5
+			newText.scale.x = newText.scale.y = newText.scale.z = 2.5
 			a = newText.textWidth/(config.p7.size / 2)
 #			r.rotation.z = -Math.PI/2 - a + (5 * Math.PI)/180
 

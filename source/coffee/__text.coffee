@@ -269,13 +269,13 @@ RingText = (options, offsetsDisabled=false, messager=false) ->
 			c += 0.8
 
 
-		y = if str[f] == "Ц" or str[f] == "Щ"
+		y = if str[f] == "Ц" or str[f] == "Щ" and messager
 				-0.2
-			else if str[f] == "Д"
+			else if str[f] == "Д" and messager
 				-0.2
-			else if str[f] == "Й"
+			else if str[f] == "Й" and messager
 				0.3
-			else if str[f] == "Ё"
+			else if str[f] == "Ё"and messager
 				0.0
 			else
 				0

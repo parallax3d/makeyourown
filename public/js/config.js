@@ -47,7 +47,7 @@ config = {
     price: function(obj) {
       return 5000;
     },
-    fonts: ["arian amu", "red october", "fha nicholson french ncv", "american captain", "scada"]
+    fonts: ["arian amu", "red october", "fha nicholson french ncv", "american captain", "calligraph", "Damion", "Harlow", "Molle", "Norican", "Script", "Segoe", "icomoon", "Yellowtail", "Boleroscript", "veryberry", "goodvibes", "Campanella", "CyrillicRibbon", "HeinrichScript", "ParkAvenue", "Parsek", "TeddyBear", "Andantinoscript", "BickhamScriptOne", "Corinthia", "MonotypeCorsiva", "Alexander", "Carolina", "Kaleidoscope", "L691Script", "StudioScriptCTT", "scada"]
   },
   p3: {
     title: "Messager",
@@ -61,7 +61,7 @@ config = {
     price: function(obj) {
       return 5000;
     },
-    fonts: ["arian amu"]
+    fonts: ["arian amu", "calligraph", "Damion", "Harlow", "Molle", "Norican", "Script", "Segoe", "icomoon", "Yellowtail", "Boleroscript", "veryberry", "goodvibes", "Campanella", "CyrillicRibbon", "HeinrichScript", "ParkAvenue", "Parsek", "TeddyBear", "Andantinoscript", "BickhamScriptOne", "Corinthia", "MonotypeCorsiva", "Alexander", "Carolina", "Kaleidoscope", "L691Script", "StudioScriptCTT"]
   },
   p4: {
     title: "One’s Necklace",
@@ -74,7 +74,7 @@ config = {
     price: function() {
       return 0;
     },
-    fonts: ["calligraph", "Damion", "Harlow", "Molle", "Norican", "Script", "Segoe", "icomoon", "Yellowtail", "Boleroscript", "veryberry", "goodvibes", "Campanella", "CyrillicRibbon", "HeinrichScript", "ParkAvenue", "Parsek", "TeddyBear"]
+    fonts: ["calligraph", "Damion", "Harlow", "Molle", "Norican", "Script", "Segoe", "icomoon", "Yellowtail", "Boleroscript", "veryberry", "goodvibes", "Campanella", "CyrillicRibbon", "HeinrichScript", "ParkAvenue", "Parsek", "TeddyBear", "Andantinoscript", "BickhamScriptOne", "Corinthia", "MonotypeCorsiva", "Alexander", "Carolina", "Kaleidoscope", "L691Script", "StudioScriptCTT"]
   },
   p5: {
     title: "Raw",
@@ -90,7 +90,7 @@ config = {
     price: function(obj) {
       return 5000;
     },
-    fonts: ["scada", "aldrich"]
+    fonts: ["scada", "aldrich", "calligraph", "Damion", "Harlow", "Molle", "Norican", "Script", "Segoe", "icomoon", "Yellowtail", "Boleroscript", "veryberry", "goodvibes", "Campanella", "CyrillicRibbon", "HeinrichScript", "ParkAvenue", "Parsek", "TeddyBear", "Andantinoscript", "BickhamScriptOne", "Corinthia", "MonotypeCorsiva", "Alexander", "Carolina", "Kaleidoscope", "L691Script", "StudioScriptCTT"]
   },
   p6: {
     title: "Raw-Round",
@@ -104,7 +104,7 @@ config = {
     price: function() {
       return 0;
     },
-    fonts: ["calligraph", "Damion", "Harlow", "Molle", "Norican", "Script", "Segoe", "icomoon", "Yellowtail", "Boleroscript", "veryberry", "goodvibes", "Campanella", "CyrillicRibbon", "HeinrichScript", "ParkAvenue", "Parsek", "TeddyBear"]
+    fonts: ["calligraph", "Damion", "Harlow", "Molle", "Norican", "Script", "Segoe", "icomoon", "Yellowtail", "Boleroscript", "veryberry", "goodvibes", "Campanella", "CyrillicRibbon", "HeinrichScript", "ParkAvenue", "Parsek", "TeddyBear", "Andantinoscript", "BickhamScriptOne", "Corinthia", "MonotypeCorsiva", "Alexander", "Carolina", "Kaleidoscope", "L691Script", "StudioScriptCTT"]
   },
   p7: {
     title: "Cufflink",
@@ -118,6 +118,6 @@ config = {
     price: function() {
       return 0;
     },
-    fonts: ["Damion", "Harlow", "Molle", "Script", "Segoe", "icomoon", "Yellowtail", "veryberry", "ScriptMTBold"]
+    fonts: ["Damion", "Harlow", "Molle", "Script", "Segoe", "icomoon", "Yellowtail", "veryberry", "ScriptMTBold", "CyrillicRibbon", "HeinrichScript", "ParkAvenue", "Parsek", "TeddyBear", "Andantinoscript", "BickhamScriptOne", "Corinthia", "MonotypeCorsiva", "Alexander", "Carolina", "Kaleidoscope", "L691Script", "StudioScriptCTT"]
   }
 };

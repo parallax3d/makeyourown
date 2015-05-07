@@ -74,7 +74,7 @@ config = {
     price: function() {
       return 0;
     },
-    fonts: ["calligraph", "Damion", "Harlow", "Molle", "Norican", "Script", "Segoe", "icomoon", "Yellowtail", "nickainley", "veryberry", "goodvibes"]
+    fonts: ["calligraph", "Damion", "Harlow", "Molle", "Norican", "Script", "Segoe", "icomoon", "Yellowtail", "Boleroscript", "veryberry", "goodvibes", "Campanella", "CyrillicRibbon", "HeinrichScript", "ParkAvenue", "Parsek", "TeddyBear"]
   },
   p5: {
     title: "Raw",
@@ -104,7 +104,7 @@ config = {
     price: function() {
       return 0;
     },
-    fonts: ["calligraph", "Damion", "Harlow", "Molle", "Norican", "Script", "Segoe", "icomoon", "Yellowtail", "nickainley", "veryberry", "goodvibes"]
+    fonts: ["calligraph", "Damion", "Harlow", "Molle", "Norican", "Script", "Segoe", "icomoon", "Yellowtail", "Boleroscript", "veryberry", "goodvibes", "Campanella", "CyrillicRibbon", "HeinrichScript", "ParkAvenue", "Parsek", "TeddyBear"]
   },
   p7: {
     title: "Cufflink",

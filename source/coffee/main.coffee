@@ -401,7 +401,7 @@ initPanel = ->
 	$(".selectboxit-option").click ->
 	  $(".selectboxit-focus").removeClass "selectboxit-focus"
 	  $(this).addClass "selectboxit-focus"
-	  text = $(this).find("a").clone().children().remove().end().text()
+	  text = $(this).attr('data-val')
 	  modelParams.changeFont $('#text-input').val(), text.trim()
 	  $("input[name=p-selected-font]").val text.trim()
 	  return

@@ -270,11 +270,11 @@ RingText = (options, offsetsDisabled=false, messager=false) ->
 
 
 		y = if str[f] == "Ц" or str[f] == "Щ"
-				-0.0
+				-0.2
 			else if str[f] == "Д"
-				-0.0
+				-0.2
 			else if str[f] == "Й"
-				-0.0
+				0.3
 			else if str[f] == "Ё"
 				0.0
 			else

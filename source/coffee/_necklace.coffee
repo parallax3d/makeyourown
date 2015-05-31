@@ -17,9 +17,9 @@ Necklace = (callback) ->
 
 	if loadedModels.necklace == null
 		$("#ajax-loading").show()
-		loader.load "obj/textnecklace/necklace.obj", (object) ->
+		loader.load "obj/textnecklace/necklace.obj", (chainL) ->
 
-			object.traverse (child) ->
+			chainL.traverse (child) ->
 				if child instanceof THREE.Mesh
 					child.material = silverMaterial.clone()
 
@@ -33,7 +33,12 @@ Necklace = (callback) ->
 			mesh2 = new THREE.Mesh geom.clone(), silverMaterial.clone()
 			mesh2.userData.torus2 = true
 
-			modelParams.changeDraw(text, mesh, mesh2)
+			chainR = chainL.clone()
+			chainR.rotation.y = Math.PI
+			chainL.userData.chainL = true
+			chainR.userData.chainR = true
+
+			modelParams.changeDraw(text, mesh, mesh2, chainL, chainR)
 
 			combine.add mesh
 			combine.add mesh2
@@ -42,6 +47,8 @@ Necklace = (callback) ->
 			combine.scale.x = combine.scale.y = combine.scale.z = 0.8
 
 			scene.add combine
+#			scene.add chainL
+#			scene.add chainR
 
 			loadedModels.necklace = combine.clone()
 
@@ -52,7 +59,7 @@ Necklace = (callback) ->
 		scene.add combine
 		changeMaterialNew combine, modelParams.material
 
-	modelParams.changeDraw = (text, torus1, torus2) ->
+	modelParams.changeDraw = (text, torus1, torus2, chainL, chainR ) ->
 		raycaster = new THREE.Raycaster()
 
 		text.position.x = 0
@@ -60,8 +67,14 @@ Necklace = (callback) ->
 		torus1.position.y = 1.0
 		torus1.position.x = -text.textWidth/2 - 0.4
 
+#		chainL.position.y = 0.6
+#		chainL.position.x = torus1.position.x + 0.8
+
 		torus2.position.y = 1.0
 		torus2.position.x = text.textWidth/2 + 0.4
+
+#		chainR.position.y = 0.6
+#		chainR.position.x = torus2.position.x - 0.8
 
 		text.position.x = -text.textWidth/2
 
@@ -100,26 +113,36 @@ Necklace = (callback) ->
 		torus1Y = 0
 		torus2Y = 0
 
-		for obj in scene.children when obj? and obj.userData.model == true
+		t1 = null
+		t2 = null
+		chainL = null
+		chainR = null
+		combine = null
 
-			t1 = null
-			t2 = null
+		for obj in scene.children when obj? and (obj.userData.model == true or obj.userData.chainL == true or obj.userData.chainR == true)
 
-			for torus in obj.children when torus.userData.torus1 == true
-				t1 = torus
-			for torus in obj.children when torus.userData.torus2 == true
-				t2 = torus
-			for text in obj.children when text? and text.userData.text == true
-				obj.remove text
+			if obj.userData.chainL == true
+				chainL = obj
+			else if obj.userData.chainR == true
+				chainR = obj
 
-			newText = NecklaceText str: str, font: config.p4.defaultFont
-			newText.userData.text = true
+			else
+				combine = obj
+				for torus in obj.children when torus.userData.torus1 == true
+					t1 = torus
+				for torus in obj.children when torus.userData.torus2 == true
+					t2 = torus
+				for text in obj.children when text? and text.userData.text == true
+					obj.remove text
 
-			modelParams.changeDraw(newText, t1, t2)
+		newText = NecklaceText str: str, font: config.p4.defaultFont
+		newText.userData.text = true
 
-			obj.add newText
+		modelParams.changeDraw(newText, t1, t2, chainL, chainR)
 
-			changeMaterialNew obj, modelParams.material
+		combine.add newText
+
+		changeMaterialNew combine, modelParams.material
 
 	modelParams.functionsTable["p-selected-font"] = modelParams.changeFont
 	modelParams.functionsTable["p-panel-text"] = modelParams.changeText

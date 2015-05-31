@@ -115,5 +115,4 @@ config =
 		height: "280px"
 		price: ->
 			return 0
-		fonts: [  "Damion", "Harlow", "Molle",  "Script", "Segoe", "icomoon", "Yellowtail", "veryberry", "ScriptMTBold", "CyrillicRibbon", "HeinrichScript", "ParkAvenue", "Parsek", "TeddyBear", "Andantinoscript", "BickhamScriptOne", "Corinthia", "MonotypeCorsiva", "Alexander",
-							"Carolina", "Kaleidoscope", "L691Script", "StudioScriptCTT"]
+		fonts: [  "ScriptMTBold"]

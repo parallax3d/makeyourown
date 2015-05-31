@@ -17,7 +17,7 @@ Cufflink = (callback) ->
 
 			combine.add object
 
-			text = NecklaceText str: "RR", font: config.p7.defaultFont, diagonal: true
+			text = NecklaceText str: "RR", font: config.p7.defaultFont, diagonal: true, leftBorder: 2.0, rightBorder: 1.5
 			a = text.textWidth/(config.p7.size / 2)
 
 			text.userData.text = true

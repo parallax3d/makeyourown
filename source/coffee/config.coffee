@@ -65,15 +65,13 @@ config =
 		title: "One’s Necklace"
 		id: "p4"
 		menuIcon: "css/icons/product5.png"
-		defaultFont: "calligraph"
+		defaultFont: "goodvibes"
 		model: Necklace
 		maxTextLength: 15
 		height: "220px"
 		price: ->
 			return 0
-		fonts: [ "calligraph", "Damion", "Harlow", "Molle", "Norican", "Script", "Segoe", "icomoon", "Yellowtail",	"Boleroscript",  "veryberry", "goodvibes", "Campanella",
-							"CyrillicRibbon", "HeinrichScript", "ParkAvenue", "Parsek", "TeddyBear", "Andantinoscript", "BickhamScriptOne", "Corinthia", "MonotypeCorsiva", "Alexander",
-							"Carolina", "Kaleidoscope", "L691Script", "StudioScriptCTT"]
+		fonts: [ "Corinthia", "goodvibes", "Kaleidoscope", "StudioScriptCTT", "TeddyBear", "Damion", "Molle", "Yellowtail" ]
 	p5:
 		title: "Raw"
 		id: "p5"
@@ -94,16 +92,14 @@ config =
 		title: "Raw-Round"
 		id: "p6"
 		menuIcon: "css/icons/product7.png"
-		defaultFont: "calligraph"
+		defaultFont: "goodvibes"
 		model: RawRound
 		maxTextLength: 12
 		size: 18
 		height: "280px"
 		price: ->
 			return 0
-		fonts: [ "calligraph", "Damion", "Harlow", "Molle", "Norican", "Script", "Segoe", "icomoon", "Yellowtail", "Boleroscript", "veryberry", "goodvibes", "Campanella",
-						 "CyrillicRibbon", "HeinrichScript", "ParkAvenue", "Parsek", "TeddyBear", "Andantinoscript", "BickhamScriptOne", "Corinthia", "MonotypeCorsiva", "Alexander",
-							"Carolina", "Kaleidoscope", "L691Script", "StudioScriptCTT"]
+		fonts: [ "Corinthia", "goodvibes", "Kaleidoscope", "StudioScriptCTT", "TeddyBear", "Damion", "Molle", "Yellowtail" ]
 	p7:
 		title: "Cufflink"
 		id: "p7"

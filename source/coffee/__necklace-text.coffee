@@ -1,10 +1,13 @@
 NecklaceText = (options) ->
-	{font, str, radius, size, rotation, diagonal} = options
+	{font, str, radius, size, rotation, diagonal, leftBorder, rightBorder} = options
 
 	size = size or= 5.4
 	diagonal = diagonal or=false
 	rotation = rotation or=0
 	height = 0.001
+
+	leftBorder = leftBorder or=1.0
+	rightBorder = rightBorder or=0.5
 
 	# create a main obj
 	geom = new THREE.Geometry
@@ -27,9 +30,6 @@ NecklaceText = (options) ->
 
 		geom.computeBoundingBox()
 		textGeometry.computeBoundingBox()
-
-		leftBorder = 1.0
-		rightBorder = 0.5
 
 		z = 0
 		y = 0

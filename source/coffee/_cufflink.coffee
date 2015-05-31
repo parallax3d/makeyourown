@@ -56,7 +56,7 @@ Cufflink = (callback) ->
 
 				obj.remove text
 
-			newText = NecklaceText str: str, font: config.p7.defaultFont, diagonal: true
+			newText = NecklaceText str: str, font: config.p7.defaultFont, diagonal: true, leftBorder: 2.0, rightBorder: 1.5
 			newText.userData.text = true
 			newText.position.z = 1
 			newText.position.x = -newText.textWidth/2

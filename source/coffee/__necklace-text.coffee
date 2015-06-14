@@ -113,9 +113,9 @@ NeklaceSymbol = (options) ->
 	size = size or= 5.4
 	height = 0.001
 
-	unless (/[a-zmaxTextLengthA-Zа-яА-Я0-9]/g).test(lt)
+	unless (/[a-zA-Zа-яА-Я0-9]/g).test(lt)
 		font = 'icomoon'
-		size *= 2.0
+		size *= 0.5
 
 	console.log "---" + lt;
 

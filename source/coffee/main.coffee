@@ -66,8 +66,7 @@ loadModel = (n) ->
 
 	$("#menu a[pid='p#{n}']").parent().addClass "active-menu"
 
-	for obj in scene.children when obj? and obj.userData.model == true then scene.remove obj if scene?
-
+	for obj in scene.children when obj? and ( obj.userData.model == true or obj.userData.combine == true ) then scene.remove obj if scene?
 
 	$("#panel").load "panels/p#{n}.html", ->
 		$("form").attr "action", formPost
@@ -178,11 +177,17 @@ exportSTL = ->
 			stllines = stllines.concat exportFaces x, objmodel.matrix
 			func x
 
-	for obj in scene.children when obj.userData.model == true
-		func obj
+	extruct = (obj) =>
+
+		for obj in obj.children
+			if obj.userData.model == true
+				func obj
+			else if obj.userData.combine == true
+				extruct obj
+
+	extruct(scene)
 
 	stllines.push "endsolid name"
-
 
 	result = stllines.join "\n"
 	console.log result
@@ -365,9 +370,14 @@ initPanel = ->
 	}, {
 		name: 'Символы',
 		data: [ "\uE001", "\uE002", "\uE003", "\uE004", "\uE005",
-					 "\uE006", "\uE007", "\uE008", "\uE009", "\uE010", "\uE011", "\uE012", "\uE013", "\uE014", "\uE015", "\uE016", "\uE017", "\uE018", "\uE019", "\uE00A", "\uE00B", "\uE00C", "\uE00D",
-					 "\uE00D", "\uE00F", "\uE01A", "\uE01B", "\uE01C", "\uE01D", "\uE01E", "\uE01F", "\uE020", "\uE021", "\uE022", "\uE023", "\uE024", "\uE025", "\uE026", "\uE027", "\uE028", "\uE019",
-					 "\uE02A", "\uE02B", "\uE02C", "\uE02D", "\uE02E", "\uE02F", "\uF095", "\uF096", "\uF097"]
+					 "\uE006", "\uE007", "\uE008", "\uE009", "\uE010",
+					 "\uE011", "\uE012", "\uE013", "\uE016",
+					 "\uE017", "\uE018", "\uE00A", "\uE00B", "\uE00C",
+					 "\uE00D", "\uE00F", "\uE01A", "\uE01B", "\uE01D",
+						"\uE01E", "\uE020", "\uE021", "\uE022", "\uE023",
+						"\uE024", "\uE025", "\uE026", "\uE027", "\uE028",
+						"\uE02A", "\uE02B", "\uE02C", "\uE02D",
+						"\uE02E", "\uE02F", "\uF095", "\uF096", "\uF097"]
 	}, {
 		name: 'Цифры',
 		data: ["\uF098", "\uF099", "\uF09A", "\uF09B", "\uF09C", "\uF09D", "\uF09E", "\uF09F", "\uF0A0",

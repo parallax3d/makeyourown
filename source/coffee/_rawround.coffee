@@ -11,15 +11,15 @@ RawRound = (callback) ->
 
 	if loadedModels.rawround == null
 		text = NecklaceText str: "myo", font: config.p6.defaultFont, rotation: ( config.p6.size / 2 )
-		a = text.textWidth/(config.p6.size / 2)
+		a = text.textWidth/(config.p1.size / 2)
 
 		text.userData.text = true
-		text.position.z = config.p6.size / 2
+		text.position.z = config.p1.size / 2
 #		text.position.x = 0.6
 		combine.add text
 
 		ring = new THREE.Object3D
-		geom = new THREE.TorusGeometry config.p6.size/2, 0.3, 20, 50, Math.PI
+		geom = new THREE.TorusGeometry config.p1.size/2, 0.5, 20, 50, Math.PI
 		mesh = new THREE.Mesh geom, silverMaterial.clone()
 		mesh.rotation.z = Math.PI/2 - (2 * Math.PI)/180
 		mesh.rotation.x = Math.PI/2
@@ -34,12 +34,10 @@ RawRound = (callback) ->
 		clone.position.y = 1.0
 		combine.add clone
 
-		combine.scale.x = combine.scale.y = combine.scale.z = config.p6.size * 0.05
+		combine.scale.x = combine.scale.y = combine.scale.z = config.p1.size * 0.05
 		combine.position.y = 9
 
-
 		scene.add combine
-
 
 		loadedModels.rawround = combine.clone()
 		$("#ajax-loading").hide()
@@ -66,11 +64,11 @@ RawRound = (callback) ->
 
 				obj.remove text
 
-			newText = NecklaceText str: str, font: config.p6.defaultFont, rotation: (config.p6.size / 2)
+			newText = NecklaceText str: str, font: config.p6.defaultFont, rotation: (config.p1.size / 2)
 			newText.userData.text = true
-			newText.position.z = config.p6.size / 2
+			newText.position.z = config.p1.size / 2
 			newText.position.x = -0.0
-			a = newText.textWidth/(config.p6.size / 2)
+			a = newText.textWidth/(config.p1.size / 2)
 			r.rotation.z = -Math.PI/2 - a + (2 * Math.PI)/180
 
 			obj.add newText

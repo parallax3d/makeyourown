@@ -13,7 +13,10 @@ Necklace = (callback) ->
 	camera.position.z = 0
 
 	combine = new THREE.Object3D
-	combine.userData.model = true
+	combine.userData.combine = true
+
+	model = new THREE.Object3D
+	model.userData.model = true
 
 	if loadedModels.necklace == null
 		$("#ajax-loading").show()
@@ -40,15 +43,17 @@ Necklace = (callback) ->
 
 			modelParams.changeDraw(text, mesh, mesh2, chainL, chainR)
 
-			combine.add mesh
-			combine.add mesh2
-			combine.add text
+			model.add mesh
+			model.add mesh2
+			model.add text
 
-			combine.scale.x = combine.scale.y = combine.scale.z = 0.8
+			model.scale.x = model.scale.y = model.scale.z = 0.8
+
+			combine.add model
+			combine.add chainL
+			combine.add chainR
 
 			scene.add combine
-#			scene.add chainL
-#			scene.add chainR
 
 			loadedModels.necklace = combine.clone()
 
@@ -60,21 +65,20 @@ Necklace = (callback) ->
 		changeMaterialNew combine, modelParams.material
 
 	modelParams.changeDraw = (text, torus1, torus2, chainL, chainR ) ->
-		raycaster = new THREE.Raycaster()
 
 		text.position.x = 0
 
 		torus1.position.y = 1.0
 		torus1.position.x = -text.textWidth/2 - 0.4
 
-#		chainL.position.y = 0.6
-#		chainL.position.x = torus1.position.x + 0.8
+		chainL.position.y = 0.6
+		chainL.position.x = -text.textWidth/2 + 0.8
 
 		torus2.position.y = 1.0
 		torus2.position.x = text.textWidth/2 + 0.4
 
-#		chainR.position.y = 0.6
-#		chainR.position.x = torus2.position.x - 0.8
+		chainR.position.y = 0.6
+		chainR.position.x =  text.textWidth/2 - 0.8
 
 		text.position.x = -text.textWidth/2
 
@@ -117,9 +121,9 @@ Necklace = (callback) ->
 		t2 = null
 		chainL = null
 		chainR = null
-		combine = null
+		model = null
 
-		for obj in scene.children when obj? and (obj.userData.model == true or obj.userData.chainL == true or obj.userData.chainR == true)
+		for obj in combine.children when obj? and (obj.userData.model == true or obj.userData.chainL == true or obj.userData.chainR == true)
 
 			if obj.userData.chainL == true
 				chainL = obj
@@ -127,7 +131,7 @@ Necklace = (callback) ->
 				chainR = obj
 
 			else
-				combine = obj
+				model = obj
 				for torus in obj.children when torus.userData.torus1 == true
 					t1 = torus
 				for torus in obj.children when torus.userData.torus2 == true
@@ -140,9 +144,9 @@ Necklace = (callback) ->
 
 		modelParams.changeDraw(newText, t1, t2, chainL, chainR)
 
-		combine.add newText
+		model.add newText
 
-		changeMaterialNew combine, modelParams.material
+		changeMaterialNew model, modelParams.material
 
 	modelParams.functionsTable["p-selected-font"] = modelParams.changeFont
 	modelParams.functionsTable["p-panel-text"] = modelParams.changeText

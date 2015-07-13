@@ -52,6 +52,29 @@ $(document).ready ->
 		n = if isNaN n then 1 else n
 		loadModel n
 
+getPrice = (material) ->
+	if !material
+		material = modelParams.material
+	model_id = parseInt(location.hash[1])
+	text_length = $('#text-input').val().length
+
+	$.ajax
+		type: 'POST'
+		url: '/ajax/get_model_price.php'
+		data:
+			'p-model-id': model_id
+			'p-material': material
+			'p-text-length': text_length
+			'p-height': modelParams.heightv
+			'p-text-height': modelParams.fontHeight
+			'p-side-smooth': modelParams.bottomSmooth
+			'p-thickness': modelParams.thickness
+		success: (price) ->
+			$('#price').text price
+			$('input[name=p-price]').val price
+			return
+	return
+
 loadModel = (n) ->
 	$("canvas").hide()
 
@@ -69,20 +92,24 @@ loadModel = (n) ->
 	for obj in scene.children when obj? and ( obj.userData.model == true or obj.userData.combine == true ) then scene.remove obj if scene?
 
 	$("#panel").load "panels/p#{n}.html", ->
+		getPrice('silver')
 		$("form").attr "action", formPost
 		$("#submit").click -> $("form").submit()
 
 		$('.gold').click ->
+			getPrice('gold')
 			changeMaterialNew scene, "gold"
 			modelParams.material = "gold"
 			$("input[name=p-material]").val modelParams.material
 
 		$('.whiteGold').click ->
+			getPrice('gold')
 			changeMaterialNew scene, "whiteGold"
 			modelParams.material = "whiteGold"
 			$("input[name=p-material]").val modelParams.material
 
 		$('.silver').click ->
+			getPrice('silver')
 			changeMaterialNew scene, "silver"
 			modelParams.material = "silver"
 			$("input[name=p-material]").val modelParams.material
@@ -304,6 +331,7 @@ initPanel = ->
 	    $("#height-ring-display").html v.toFixed(2) + " мм"
 	    modelParams.changeHeight v
 	    $("input[name=p-height]").val v
+	    getPrice()
 	    return
 
 	$("#height-ring-display").html config.p2.ringHeight.toFixed(2) + " мм"
@@ -318,6 +346,7 @@ initPanel = ->
 	    v = parseFloat(ui.value)
 	    $("#thickness-ring-display").html v.toFixed(2) + " мм"
 	    modelParams.changeThickness v
+	    getPrice()
 	    return
 
 	$("#thickness-ring-display").html config.p2.ringThickness.toFixed(2) + " мм"
@@ -333,6 +362,7 @@ initPanel = ->
 	    $("#height-text-display").html v.toFixed(2) + " мм"
 	    modelParams.changeFontHeight v
 	    $("input[name=p-text-height]").val v
+	    getPrice()
 	    return
 
 	$("#height-text-display").html config.p2.fontHeight.toFixed(2) + " мм"
@@ -348,6 +378,7 @@ initPanel = ->
 	    $("#side-smooth-display").html v.toFixed(2) + " мм"
 	    modelParams.changeSideSmooth v
 	    $("input[name=p-side-smooth]").val v
+	    getPrice()
 	    return
 
 	$("#side-smooth-display").html config.p2.sideSmooth.toFixed(2) + " мм"
@@ -455,6 +486,9 @@ initPanel = ->
 
 	$("#text-input").bind "keydown", ->
 		setSelectionRange $(this)[0], $(this).val().length, $(this).val().length
+
+	$("#text-input").bind "keyup", ->
+		getPrice()
 
 	modelParams.price()
 

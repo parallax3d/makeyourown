@@ -12,7 +12,7 @@ ConvexTextRing = (callback) ->
 	combine.userData.model = true
 
 	create = (opts,regenRing=true) =>
-		options = 
+		options =
 			text: unless modelParams.str? then "MYOMYO" else modelParams.str
 			font: config.p2.defaultFont
 			sideSmooth: 0.5
@@ -33,10 +33,10 @@ ConvexTextRing = (callback) ->
 		  for key, val of properties
 		    object[key] = val
 		  object
-		
+
 		options = extend options, opts
 
-		
+
 		# параметры
 		options.frontContourBevelThickness = options.sideSmooth * (options.height - 0.2)
 		options.frontContourBevelSize = options.bottomSmooth * (options.thickness - 0.2)
@@ -98,13 +98,13 @@ ConvexTextRing = (callback) ->
 		b.userData.meshUp = true
 		b.rotation.x = -Math.PI / 2
 		b.position.y = options.fontHeight/2
-		# Добавляем второе кольцо 
+		# Добавляем второе кольцо
 		combine.add b
 
 		changeMaterialNew combine, modelParams.material
 
 	createText = (opts) =>
-		options = 
+		options =
 			text: "MYOMYO"
 			font: config.p2.defaultFont
 			sideSmooth: 0.5
@@ -126,7 +126,7 @@ ConvexTextRing = (callback) ->
 		  for key, val of properties
 		    object[key] = val
 		  object
-		
+
 		options = extend options, opts
 
 		# параметры
@@ -193,12 +193,12 @@ ConvexTextRing = (callback) ->
 	modelParams.height = config.p2.ringHeight
 	modelParams.heightv = modelParams.height
 	modelParams.thickness = config.p2.ringThickness
-	modelParams.fontThickness = modelParams.thickness 
+	modelParams.fontThickness = modelParams.thickness
 	modelParams.bottomSmooth = config.p2.sideSmooth
 	modelParams.font = config.p2.defaultFont
 	modelParams.fontHeight = config.p2.fontHeight
 
-	
+
 	modelParams.changeHeight = (v) ->
 		for obj in scene.children when obj? and obj.userData.model == true
 			m = null
@@ -247,12 +247,12 @@ ConvexTextRing = (callback) ->
 		renderf()
 
 	modelParams.changeFont = (currentStr, font) =>
-		
+
 		f = =>
 			maxTextCount = Math.PI * config.p2.size / 4;
 
 			a = parseInt(maxTextCount / currentStr.length);
-			if (a && currentStr.length < 6) 
+			if (a && currentStr.length < 6)
 			    c = "";
 			    for b in [0..a]
 			        c += currentStr;
@@ -285,15 +285,15 @@ ConvexTextRing = (callback) ->
 	modelParams.functionsTable["p-selected-font"] = modelParams.changeFont
 	modelParams.functionsTable["p-panel-text"] = modelParams.changeText
 	modelParams.functionsTable["p-size"] = modelParams.changeSize
-	
-	
+
+
 	if loadedModels.mring == null
 		create(modelParams)
 		modelParams.text = "MYOMYO"
 		createText(modelParams)
 		loadedModels.mring = combine.clone()
 		combine.scale.x = combine.scale.y = combine.scale.z = config.p3.size*0.055
-		scene.add combine 
+		scene.add combine
 	else
 		combine = loadedModels.mring.clone()
 		changeMaterialNew combine, modelParams.material
